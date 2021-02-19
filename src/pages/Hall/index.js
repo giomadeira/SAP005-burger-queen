@@ -18,6 +18,7 @@ function Hall(){
 
     const [cafe, setCafe] = useState('');
     const [menu, setMenu] = useState('');
+    
     const token  = localStorage.getItem("token");
 
     useEffect (() => {
@@ -32,10 +33,40 @@ function Hall(){
             .then((response) => response.json()).then((json) => {
                 const breakfast = json.filter(item => item.type === 'breakfast')
                 const allDay = json.filter(item => item.type === 'all-day')
-                setCafe(breakfast)
-                setMenu(allDay)
+                const hamburgerMap = {}
+                allDay.map((item, i , self) => {
+
+                    if (!hamburgerMap[item.name]){
+                        hamburgerMap[item.name] = []
+                    }
+
+                    if (hamburgerMap[item.name].indexOf(item.flavor)== -1){
+                        hamburgerMap[item.name].push(item.flavor)
+                        }    
+                } )
+                console.log(hamburgerMap);
+                 const hamburgerSelect = 
+                            {
+                            'Hambug Simples': [
+                            'carne', 'frango', 'vegetariano'
+                            ],
+                            'Hambug Duplo':  [
+                            'carne', 'frango', 'vegetariano'
+                            ],
+                        }
+  
+  
+    console.log(Object.keys(hamburgerSelect))
+  
+    Object.keys(hamburgerSelect).map((item, i) => {
+  	console.log(hamburgerSelect[item])
+    hamburgerSelect[item].map((flavors) =>{
+    	console.log(flavors)
+    })
+  })
                 
-                console.log(json);
+                setCafe(breakfast);
+                setMenu(allDay);
             })
     }, []);
     
@@ -49,11 +80,15 @@ function Hall(){
                 <h1>Café da Manhã</h1>
             <Cardapio className="container-cafe" title="" array={cafe} />
             </div>
+           
 
             <div className="allDay">
                 <h1>Almoço e Jantar</h1>
             <Cardapio className="container-allDay" title="" array={menu} />
             </div>
+
+            
+
         </div>    
     );
 };
