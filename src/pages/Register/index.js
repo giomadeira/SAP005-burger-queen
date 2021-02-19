@@ -56,14 +56,14 @@ function Register() {
             <p className="register"> <img src={logo}/></p>
             <form className="loginForm">
 
-                <input type="text" placeholder="Nome*" value={name} id="cadName" onChange={(event) => setName(event.target.value)} />
+                <input type="text" placeholder="Nome" value={name} id="cadName" onChange={(event) => setName(event.target.value)} />
 
-                <input type="text" placeholder="E-mail*" value={email} id="cadEmail" onChange={(event) => setEmail(event.target.value)} />
+                <input type="text" placeholder="E-mail" value={email} id="cadEmail" onChange={(event) => setEmail(event.target.value)} />
 
-                <input type="password" placeholder="Senha*" value={password} id="cadPassword" onChange={(event) => setPassword(event.target.value)} />
+                <input type="password" placeholder="Senha" value={password} id="cadPassword" onChange={(event) => setPassword(event.target.value)} />
 
                 <FormControl component="fieldset">
-                    <FormLabel component="legend">Cargo*</FormLabel>
+                    <FormLabel component="legend">Cargo</FormLabel>
                     <RadioGroup aria-label="" name="gender1" value={role} onChange={(event) => setRole(event.target.value)}>
                         <FormControlLabel value="hall" control={<Radio />} label="Atendente" />
                         <FormControlLabel value="cook" control={<Radio />} label="Cozinheiro" />

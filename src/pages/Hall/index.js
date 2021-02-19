@@ -28,7 +28,6 @@ function Hall(){
                 const allDay = json.filter(item => item.type === 'all-day')
                 setCafe(breakfast)
                 setMenu(allDay)
-                
                 console.log(json);
             })
     }, []);
@@ -46,6 +45,7 @@ function Hall(){
                 <h1>Almoço e Jantar</h1>
             <Cardapio className="container-allDay" title="" array={menu} />
             </div>
+
         </div>    
     );
 };
