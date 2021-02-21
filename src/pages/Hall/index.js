@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import './Hall.css';
 
-import Cardapio from '../../components/Cardapio'
+// import Cardapio from '../../components/Cardapio'
 
 function Hall(){
     const history = useHistory()
@@ -16,8 +16,17 @@ function Hall(){
         routerBack()
     }
 
+    const [unidade, setUnidade] = useState([]);
+    const addPedido = (item) => {
+        const newArray = unidade;
+        newArray.push(item);
+        console.log(newArray)
+        setUnidade(newArray)
+    }
+
     const [cafe, setCafe] = useState('');
     const [menu, setMenu] = useState('');
+    
     
     const token  = localStorage.getItem("token");
 
@@ -44,7 +53,7 @@ function Hall(){
                         hamburgerMap[item.name].push(item.flavor)
                         }    
                 } )
-                console.log(hamburgerMap);
+                 console.log(hamburgerMap);
                  const hamburgerSelect = 
                             {
                             'Hambug Simples': [
@@ -56,38 +65,74 @@ function Hall(){
                         }
   
   
-    console.log(Object.keys(hamburgerSelect))
+    // console.log(Object.keys(hamburgerSelect))
   
     Object.keys(hamburgerSelect).map((item, i) => {
-  	console.log(hamburgerSelect[item])
+  	// console.log(hamburgerSelect[item])
     hamburgerSelect[item].map((flavors) =>{
-    	console.log(flavors)
+    	//  console.log(flavors)
     })
   })
-                
                 setCafe(breakfast);
                 setMenu(allDay);
             })
     }, []);
     
-  
     
     return(
-        <div className="App">
+        <div className="App-menu">
              <button className="btnExit" onClick={logout}>Logout</button>
 
-            <div className="cafe">
+            {/* <div className="cafe">
                 <h1>Café da Manhã</h1>
-            <Cardapio className="container-cafe" title="" array={cafe} />
+            <Cardapio key={Math.random()} onClick={add} className="container-cafe" title="" array={cafe} />
             </div>
            
 
             <div className="allDay">
                 <h1>Almoço e Jantar</h1>
-            <Cardapio className="container-allDay" title="" array={menu} />
+            <Cardapio key={Math.random()} className="container-allDay" title="" array={menu} />
             </div>
 
-            
+            <div className="pedido">
+                <h1>Comanda</h1>
+            <Cardapio key={Math.random()} className="container-allDay" title="" array={unidade} />
+            </div> */}
+
+            <div className="cafe">
+                {
+                    cafe && cafe.map((item) => (
+
+                        <div onClick={() => {
+                            
+                            const name = item.name
+                            const price = item.price
+                            const itemObject = {
+                                name:name,
+                                price:price
+                            }
+
+                            addPedido(itemObject)
+                        }} key={Math.random()} className="container-cardapio">
+                        <h1 key={Math.random()} className="divName">{item.name}</h1>,
+                        <h1 key={Math.random()} className="divName">{item.flavor}</h1>,
+                        <h1 key={Math.random()} className="divPrice">R${item.price},00</h1>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div className="comanda">
+            {
+                    unidade.map((item) => (
+
+                        <div key={Math.random()} className="container-cardapio">
+                        <h1  className="divName">{item.name}</h1>,
+                        <h1  className="divPrice">{item.price}</h1>
+                        </div>
+                    ))
+                }
+            </div>
 
         </div>    
     );

@@ -1,26 +1,42 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: 0;
+}
+
 .container-allDay{
-    
     margin-top:5em;
     display: flex;
-    width: 850px;
+    width: 830px;
     height: 180px;
     flex-wrap: wrap;
 }
 
 .container-cafe{
-    margin-top:5em;
-   
     display: flex;
-    width: 850px;
-    height: 200px;
+    width: 790px;
+    margin-top: 2em;
+    flex-wrap: wrap;
    
 }
 
 .container-cardapio{
     border: 1px solid black;
     width: 250px;
-    height: 210px;
+    height: 155px;
     font-size: 12px;
     flex-direction: column;
     justify-content: flex-start;
+    margin-top:2em;
+    
+}
+
+.menu-title{
+    margin-top:2em;
+}
+
+.pedido{
+    margin-top:80em;
+    width: 760px;
+    background-color:red;
 }
