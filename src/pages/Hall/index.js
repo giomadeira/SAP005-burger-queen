@@ -43,6 +43,10 @@ const Hall = () => {
   }, [])
 
   const Adicionar = async(products) => {
+    setResumoPedido([...resumoPedido, products])
+    setPrecosProdutos([...precosProdutos, products.price])
+    
+  }
     /*const atualizarPedido = resumoPedido.map((itens)=>{
       if (products.id == itens.id){
         itens.order++
@@ -53,11 +57,9 @@ const Hall = () => {
      
     })
     console.log(precosProdutos);
-    setPrecosProdutos([...precosProdutos, products.price])*/
-  }
-  /*useEffect(() => {
-    Adicionar()
-    }, [])*/
+    setPrecosProdutos([...precosProdutos, products.price])
+  }*/
+  
 
   const Excluir = (products) => {
     setPrecoTotal(precosProdutos.splice(resumoPedido.indexOf(products), 1))
