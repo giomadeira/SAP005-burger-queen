@@ -2,11 +2,8 @@
 import './Hall.css';
 import React, { useEffect, useState } from 'react';
 
- 
-
-
-
 const Hall = () => {
+  
   const token = localStorage.getItem('token');
   const [Cafe, setCafe] = useState([]);
   const [Burger, setBurger] = useState([]);
