@@ -16,7 +16,7 @@ function Hall(){
         routerBack()
     }
 
-    const [unidade, setUnidade] = useState([]);
+
     const addPedido = (item) => {
         const newArray = unidade;
         newArray.push(item);
@@ -26,7 +26,7 @@ function Hall(){
 
     const [cafe, setCafe] = useState('');
     const [menu, setMenu] = useState('');
-    
+    const [unidade, setUnidade] = useState([]);
     
     const token  = localStorage.getItem("token");
 
@@ -75,6 +75,7 @@ function Hall(){
   })
                 setCafe(breakfast);
                 setMenu(allDay);
+                console.log(breakfast)
             })
     }, []);
     
@@ -98,22 +99,22 @@ function Hall(){
                 <h1>Comanda</h1>
             <Cardapio key={Math.random()} className="container-allDay" title="" array={unidade} />
             </div> */}
-
+            <h1>Cardápio Café da Manhã</h1>
             <div className="cafe">
-                {
-                    cafe && cafe.map((item) => (
+                {cafe && cafe.map((item) => (
 
                         <div onClick={() => {
-                            
                             const name = item.name
+                            const flavor = item.flavor
                             const price = item.price
                             const itemObject = {
                                 name:name,
+                                flavor:flavor,
                                 price:price
                             }
 
                             addPedido(itemObject)
-                        }} key={Math.random()} className="container-cardapio">
+                        }} key={Math.random()} className="container-cafe">
                         <h1 key={Math.random()} className="divName">{item.name}</h1>,
                         <h1 key={Math.random()} className="divName">{item.flavor}</h1>,
                         <h1 key={Math.random()} className="divPrice">R${item.price},00</h1>
@@ -122,13 +123,43 @@ function Hall(){
                 }
             </div>
 
+            <h1>Cardápio Almoço e Jantar</h1>
+
+            <div className="menu">
+                {
+                    menu && menu.map((item) => (
+
+                        <div onClick={() => {
+                            const name = item.name
+                            const flavor = item.flavor
+                            const price = item.price
+                            const itemObject = {
+                                name:name,
+                                flavor:flavor,
+                                price:price
+                            }
+
+                            addPedido(itemObject)
+                        }} key={Math.random()} className="container-allDay">
+                        <h1 key={Math.random()} className="divName">{item.name}</h1>,
+                        <h1 key={Math.random()} className="divName">{item.flavor}</h1>,
+                        <h1 key={Math.random()} className="divPrice">R${item.price},00</h1>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <h1>Comanda</h1>
+
             <div className="comanda">
             {
-                    unidade.map((item) => (
+                    unidade && unidade.map((item) => (
 
                         <div key={Math.random()} className="container-cardapio">
                         <h1  className="divName">{item.name}</h1>,
-                        <h1  className="divPrice">{item.price}</h1>
+                        <h1  className="divName">{item.flavor}</h1>,
+                        <h1  className="divName">{item.price}</h1>
+                        
                         </div>
                     ))
                 }
