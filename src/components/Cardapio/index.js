@@ -1,4 +1,10 @@
-import React  from 'react';
+
+
+
+
+
+/*import React  from 'react';
+
 
 
 function Cardapio({className, title, array}){
@@ -22,4 +28,4 @@ function Cardapio({className, title, array}){
           </div>   
     );
 };
- export default Cardapio;
+ export default Cardapio;*/

@@ -5,12 +5,12 @@ import React, { useEffect, useState } from 'react';
 const Hall = () => {
   
   const token = localStorage.getItem('token');
+  const [order, setOrder] = useState({});
+  const [acompanhamentos, setAcompanhamentos] = useState([]);
   const [Cafe, setCafe] = useState([]);
   const [Burger, setBurger] = useState([]);
-  const [acompanhamentos, setAcompanhamentos] = useState([]);
   const [bebidas, setBebidas] = useState([]);
   const [resumoPedido, setResumoPedido] = useState([]);
-  const [order, setOrder] = useState({});
   const [produtoExcluído, setProdutoExcluído] = useState([])
   const [precoTotal, setPrecoTotal] = useState([])
   const [precosProdutos, setPrecosProdutos] = useState([])
@@ -39,9 +39,9 @@ const Hall = () => {
       })
   }, [])
 
-  const Adicionar = async(products) => {
-    setResumoPedido([...resumoPedido, products])
-    setPrecosProdutos([...precosProdutos, products.price])
+  const Adicionar = async(produto) => {
+    setResumoPedido([...resumoPedido, produto])
+    setPrecosProdutos([...precosProdutos, produto.price])
     
   }
     /*const atualizarPedido = resumoPedido.map((itens)=>{
@@ -57,16 +57,16 @@ const Hall = () => {
     setPrecosProdutos([...precosProdutos, products.price])
   }*/
   
+  
 
-  const Excluir = (products) => {
-    setPrecoTotal(precosProdutos.splice(resumoPedido.indexOf(products), 1))
-    setProdutoExcluído(resumoPedido.splice(resumoPedido.indexOf(products), 1))
+  const Excluir = (produto) => {
+    setPrecoTotal(precosProdutos.splice(resumoPedido.indexOf(produto), 1))
+    setProdutoExcluído(resumoPedido.splice(resumoPedido.indexOf(produto),1))
     Somar();
   }
 
   const Somar = () => {
-    console.log(precosProdutos);
-    setPrecoTotal(precosProdutos.reduce((total, num) => total + num))
+    setPrecoTotal(precosProdutos.reduce((total, num) => total + num,0))
   }
 
   const Submit = () => {
@@ -226,7 +226,7 @@ const Hall = () => {
             <th className='item-total'><h4>Total:</h4></th>
             <th className='item-total'><h4>R$ {precoTotal},00</h4></th>
             <th><button onClick={() => Somar()}>Somar</button></th>
-            <th><button onClick={() => Submit()}>FINALIZAR</button></th>
+            <th><button onClick={() => Submit()}>ENVIAR</button></th>
           </tr>
         </tbody>
       </table>
@@ -242,25 +242,21 @@ export default Hall;
 /*import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import './Hall.css';
-
 import Cardapio from '../../components/Cardapio'
-
 function Hall(){
     const history = useHistory()
     const routerBack = () => {
         history.push('/')
     }
-
     const logout = () => {
         const token  = localStorage.getItem("token");
         localStorage.clear()
         routerBack()
     }
-
     const [cafe, setCafe] = useState('');
     const [menu, setMenu] = useState('');
+    
     const token  = localStorage.getItem("token");
-
     useEffect (() => {
         fetch('https://lab-api-bq.herokuapp.com/products/', {
             method: 'GET',
@@ -273,10 +269,38 @@ function Hall(){
             .then((response) => response.json()).then((json) => {
                 const breakfast = json.filter(item => item.type === 'breakfast')
                 const allDay = json.filter(item => item.type === 'all-day')
-                setCafe(breakfast)
-                setMenu(allDay)
+                const hamburgerMap = {}
+                allDay.map((item, i , self) => {
+                    if (!hamburgerMap[item.name]){
+                        hamburgerMap[item.name] = []
+                    }
+                    if (hamburgerMap[item.name].indexOf(item.flavor)== -1){
+                        hamburgerMap[item.name].push(item.flavor)
+                        }    
+                } )
+                console.log(hamburgerMap);
+                 const hamburgerSelect = 
+                            {
+                            'Hambug Simples': [
+                            'carne', 'frango', 'vegetariano'
+                            ],
+                            'Hambug Duplo':  [
+                            'carne', 'frango', 'vegetariano'
+                            ],
+                        }
+  
+  
+    console.log(Object.keys(hamburgerSelect))
+  
+    Object.keys(hamburgerSelect).map((item, i) => {
+  	console.log(hamburgerSelect[item])
+    hamburgerSelect[item].map((flavors) =>{
+    	console.log(flavors)
+    })
+  })
                 
-                console.log(json);
+                setCafe(breakfast);
+                setMenu(allDay);
             })
     }, []);
     
@@ -285,17 +309,17 @@ function Hall(){
     return(
         <div className="App">
              <button className="btnExit" onClick={logout}>Logout</button>
-
             <div className="cafe">
                 <h1>Café da Manhã</h1>
             <Cardapio className="container-cafe" title="" array={cafe} />
             </div>
-
+           
             <div className="allDay">
                 <h1>Almoço e Jantar</h1>
             <Cardapio className="container-allDay" title="" array={menu} />
             </div>
+            
         </div>    
     );
 };
- export default Hall;*/
+export default Hall;*/
