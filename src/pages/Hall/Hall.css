@@ -39,10 +39,10 @@
 } */
 
 
-    display: flex;
+/*     display: flex;
     flex-wrap: wrap;
     height: 100px; 
-}
+}*/
 
 .drinks{
     display: flex;
@@ -74,4 +74,4 @@
     height: 255px;
     font-size: 12px;
     justify-content: flex-start;
-
+}
