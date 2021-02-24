@@ -22,14 +22,20 @@ function Hall(){
          console.log(unidade)
     }
 
+  
+  
+    const [cafe, setCafe] = useState('');
+    const [menu, setMenu] = useState('');
+    const [drinks, setDrinks] = useState('');
+    const [unidade, setUnidade] = useState([]);
+    const [total, setTotal] = useState(0);
+
     const soma = () => {
       
-        let total = unidade.reduce((valorAnterior, valorAtual) => valorAnterior + valorAtual.price, 0)
-       
-        console.log(total)
-        return total    
+          setTotal(unidade.reduce((valorAnterior, valorAtual) => valorAnterior + valorAtual.price, 0))
 
-        
+        console.log(total)
+        return total
     }
 
    // unidade.splice(indice[1, deleteCount[1, setUnidade[1, ...[, setUnidade]]])
@@ -43,16 +49,6 @@ function Hall(){
    }
     
 
-    
-    const [cafe, setCafe] = useState('');
-    const [menu, setMenu] = useState('');
-    const [drinks, setDrinks] = useState('');
-    const [unidade, setUnidade] = useState([]);
-    const [total, setTotal] = useState(0);
-    const [tira, setTira] = useState();
- 
-
-    
     const token  = localStorage.getItem("token");
 
     useEffect (() => {
@@ -163,14 +159,11 @@ function Hall(){
                     ))
                 }
 
-                <div className="total-itens">
-                    <p className="div-total">R${total},00</p>
+            <button className="btn-finalizar" onClick={soma}>Finalizar</button>
 
-                </div>
-
-                <button className="btn-finalizar" onClick={soma}>Finalizar</button>
-                <button className="btn-finalizar" onClick={exclui}>Excluir</button>
-                
+            <div className="total-itens">
+            <h1>Valor total ${total},00</h1>
+            </div>
 
 
 
