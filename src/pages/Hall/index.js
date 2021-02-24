@@ -25,15 +25,32 @@ function Hall(){
     const soma = () => {
       
         let total = unidade.reduce((valorAnterior, valorAtual) => valorAnterior + valorAtual.price, 0)
-
+       
         console.log(total)
+        return total    
+
+        
     }
+
+   // unidade.splice(indice[1, deleteCount[1, setUnidade[1, ...[, setUnidade]]])
+
+
+    const exclui = () => {
+
+        let tira = unidade.splice((valorAtual, valorAnterior) => valorAtual- valorAnterior.price, 0)
+        console.log(tira)
+
+   }
+    
 
     
     const [cafe, setCafe] = useState('');
     const [menu, setMenu] = useState('');
     const [drinks, setDrinks] = useState('');
     const [unidade, setUnidade] = useState([]);
+    const [total, setTotal] = useState(0);
+    const [tira, setTira] = useState();
+ 
 
     
     const token  = localStorage.getItem("token");
@@ -123,7 +140,7 @@ function Hall(){
 
             <div className="comanda">
 
-                <div className="Register-Client">
+            <div className="Register-Client">
                 
             <input type='text' className='inputClient' placeholder="Cliente*" name="client"/>
           
@@ -146,14 +163,18 @@ function Hall(){
                     ))
                 }
 
-            <button className="btn-finalizar" onClick={soma}>Finalizar</button>
-
-            <div className="total-itens">
-                    
+                <div className="total-itens">
+                    <p className="div-total">R${total},00</p>
 
                 </div>
 
-            </div>
+                <button className="btn-finalizar" onClick={soma}>Finalizar</button>
+                <button className="btn-finalizar" onClick={exclui}>Excluir</button>
+                
+
+
+
+            </div>  
 
         </div>    
     );
