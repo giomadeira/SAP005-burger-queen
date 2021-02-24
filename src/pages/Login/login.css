@@ -1,3 +1,9 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: 0;
+}
+
 body,
 html{
   display: flex;
@@ -33,6 +39,24 @@ html{
   width: 40%;
   background-color: orange;
   width: 200px;
+  height: 65px;
+  border: 8px solid #5D392A;
+  border-radius: 18px;
+  font-size: 30px;
+  line-height: 47px;
+  color: #5D392A;
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+.btnReturn {
+  /* margin: 0 auto;
+  width: 40%; */
+  margin-right: auto;
+ 
+  align-items:right;
+  background-color: orange;
+  width: 110px;
   height: 65px;
   border: 8px solid #5D392A;
   border-radius: 18px;
