@@ -11,7 +11,7 @@ function Hall(){
     }
 
     const logout = () => {
-        const token  = localStorage.getItem("token");
+        localStorage.getItem("token");
         localStorage.clear()
         routerBack()
     }
@@ -22,12 +22,19 @@ function Hall(){
          console.log(unidade)
     }
 
+    const soma = () => {
+      
+        let total = unidade.reduce((valorAnterior, valorAtual) => valorAnterior + valorAtual.price, 0)
 
+        console.log(total)
+    }
+
+    
     const [cafe, setCafe] = useState('');
     const [menu, setMenu] = useState('');
     const [drinks, setDrinks] = useState('');
     const [unidade, setUnidade] = useState([]);
-    const [register, setRegister] = useState([]);
+
     
     const token  = localStorage.getItem("token");
 
@@ -118,9 +125,9 @@ function Hall(){
 
                 <div className="Register-Client">
                 
-            <input type='text' className='inputClient' placeholder="Cliente*" name='name' onChange={(event) => setRegister({ ...register, 'client': event.target.value })} />
+            <input type='text' className='inputClient' placeholder="Cliente*" name="client"/>
           
-            <input type='number'  className='inputTable' placeholder="Mesa*" name='table' required onChange={(event) => setRegister({ ...register, 'table': event.target.value })} />
+            <input type='number'  className='inputTable' placeholder="Mesa*" name="table"/>
           
         
                 </div>
@@ -139,7 +146,12 @@ function Hall(){
                     ))
                 }
 
-            
+            <button className="btn-finalizar" onClick={soma}>Finalizar</button>
+
+            <div className="total-itens">
+                    
+
+                </div>
 
             </div>
 
