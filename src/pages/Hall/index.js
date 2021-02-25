@@ -15,6 +15,13 @@ function Hall(){
         localStorage.clear()
         routerBack()
     }
+  
+    const [cafe, setCafe] = useState('');
+    const [menu, setMenu] = useState('');
+    const [drinks, setDrinks] = useState('');
+    const [unidade, setUnidade] = useState([]);
+    const [total, setTotal] = useState(0);
+    const [remove, setRemove] = useState([]);
 
 
     const addPedido = (item) => {
@@ -22,33 +29,20 @@ function Hall(){
          console.log(unidade)
     }
 
-  
-  
-    const [cafe, setCafe] = useState('');
-    const [menu, setMenu] = useState('');
-    const [drinks, setDrinks] = useState('');
-    const [unidade, setUnidade] = useState([]);
-    const [total, setTotal] = useState(0);
-
     const soma = () => {
-      
-          setTotal(unidade.reduce((valorAnterior, valorAtual) => valorAnterior + valorAtual.price, 0))
+        setTotal(unidade.reduce((valorAnterior, valorAtual) => valorAnterior + valorAtual.price, 0))
 
         console.log(total)
         return total
     }
 
-   // unidade.splice(indice[1, deleteCount[1, setUnidade[1, ...[, setUnidade]]])
 
+    const removeItens = () => {
+        setRemove(unidade.splice(unidade.indexOf(''),1))
+        
+    }
 
-    const exclui = () => {
-
-        let tira = unidade.splice((valorAtual, valorAnterior) => valorAtual- valorAnterior.price, 0)
-        console.log(tira)
-
-   }
     
-
     const token  = localStorage.getItem("token");
 
     useEffect (() => {
@@ -141,6 +135,7 @@ function Hall(){
             <input type='text' className='inputClient' placeholder="Cliente*" name="client"/>
           
             <input type='number'  className='inputTable' placeholder="Mesa*" name="table"/>
+            
           
         
                 </div>
@@ -160,6 +155,7 @@ function Hall(){
                 }
 
             <button className="btn-finalizar" onClick={soma}>Finalizar</button>
+            <button className="btn-finalizar" onClick={removeItens}>Cancelar</button>
 
             <div className="total-itens">
             <h1>Valor total ${total},00</h1>
