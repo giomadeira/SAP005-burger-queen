@@ -22,6 +22,9 @@ function Hall(){
     const [unidade, setUnidade] = useState([]);
     const [total, setTotal] = useState(0);
     const [remove, setRemove] = useState([]);
+    const [cadClient, setCadClient] = useState('');
+    const [cadTable, setCadTable] = useState('');
+
 
 
     const addPedido = (item) => {
@@ -32,6 +35,9 @@ function Hall(){
     const soma = () => {
         setTotal(unidade.reduce((valorAnterior, valorAtual) => valorAnterior + valorAtual.price, 0))
         console.log(total)
+        console.log(cadClient)
+        console.log(cadTable)
+
         return total
     }
 
@@ -40,6 +46,36 @@ function Hall(){
         
     }
 
+    const enviar = () => {
+        fetch('https://lab-api-bq.herokuapp.com/orders', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "accept": "application/json",
+              "Authorization": token
+            },
+            body: JSON.stringify({
+                "client": cadClient,
+                "table": cadTable,
+                "products":
+                  unidade.map((item) => (
+                    {
+                      "id": Number(item.id),
+                      "qtd": 1
+                    }
+                  ))
+                })
+            })
+                  .then((response) => response.json())
+                  .then((json) => {
+                    console.log(json)
+                  })
+    }
+
+  
+   
+       
+         
 
 
     
@@ -79,10 +115,12 @@ function Hall(){
                             const name = item.name
                             const flavor = item.flavor
                             const price = item.price
+                            const id = item.id
                             const itemObject = {
                                 name:name,
                                 flavor:flavor,
-                                price:price
+                                price:price,
+                                id:id
                             }
 
                             addPedido(itemObject)
@@ -106,11 +144,14 @@ function Hall(){
                             const flavor = item.flavor
                             const price = item.price
                             const complement = item.complement
+                            const id = item.id
                             const itemObject = {
                                 name:name,
                                 flavor:flavor,
                                 price:price,
-                                complement:complement
+                                complement:complement,
+                                id:id
+
                             }
 
                             addPedido(itemObject)
@@ -132,9 +173,9 @@ function Hall(){
 
                 <div className="Register-Client">
                 
-            <input type='text' className='inputClient' placeholder="Cliente*" name="client"/>
+            <input type='text' className='inputClient' placeholder="Cliente*" value={cadClient} onChange={(event)=> setCadClient(event.target.value)}/>
           
-            <input type='number'  className='inputTable' placeholder="Mesa*" name="table"/>
+            <input type='number'  className='inputTable' placeholder="Mesa*" value={cadTable} onChange={(event)=> setCadTable(event.target.value)}/>
           
         
                 </div>
@@ -154,8 +195,9 @@ function Hall(){
                 }
 
             <button className="btn-finalizar" onClick={soma}>Finalizar</button>
-            <button className="btn-finalizar" onClick={removeItens}>Cancelar</button>
-
+            <button className="btn-delete" onClick={removeItens}>Cancelar</button>
+             <button className="btn-enviar" onClick={enviar}>Enviar</button> 
+            
             <div className="total-itens">
             <h1>Valor total ${total},00</h1>
             </div>

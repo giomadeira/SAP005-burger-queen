@@ -39,8 +39,8 @@ function Login() {
                 const token = json.token
                 const id = json.id
 
-                const tokenUser = localStorage.setItem("token", token)
-                const idUser = localStorage.setItem("id", id)
+                localStorage.setItem("token", token)
+                localStorage.setItem("id", id)
 
                 if (json.id !== null) {
                     routerBack();
@@ -49,9 +49,6 @@ function Login() {
                 } if (json.role === "cook") {
                     routerKitchen();
                 }
-
-                // setEmail('');
-                // setPassword('');
 
             })
 

@@ -6,9 +6,11 @@
 
 body,
 html{
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
+  /* width: 100vw; */
+  height: 100vh;
 }
 
 .login{
@@ -19,10 +21,11 @@ html{
 
 .App{
   background-color:rgba(254,202,110);
-  width: 850px;
-  height: 1150px;
+  width: 100vw;
+  /* height: 100vh; */
   /*border: 3px solid #000000;*/
   border-radius: 25px;
+  margin: 0 auto;
 } 
 
 .loginForm {
