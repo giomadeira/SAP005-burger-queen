@@ -51,7 +51,11 @@ function Kitchen(){
                         <p key={Math.random()} className="divFlavor">Id{item.id}</p>
                         <p key={Math.random()} className="divPrice">Nº Mesa{item.table}</p>
                         <p key={Math.random()} className="divPrice">Status{item.status}</p>
-                        <p key={Math.random()} className="divPrice">Produtos{item.products}</p>
+                        <div key={Math.random()} className="divPrice">Produtos{item.Products.map((product) => 
+                        <p> {product.name} </p>)}
+                       
+                        </div>
+
                         </div>
                     ))
                 }
