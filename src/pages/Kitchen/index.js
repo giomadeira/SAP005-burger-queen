@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 
-
 function Kitchen(){
 
     const token  = localStorage.getItem("token");
     const [pedidos, setPedidos] = useState('');
-    
 
         const history = useHistory()
         const routerBack = () => {
@@ -21,7 +19,6 @@ function Kitchen(){
 
     useEffect (() => {
         fetch('https://lab-api-bq.herokuapp.com/orders/', {
-
             method: 'GET',
             headers: {
                 'accept': 'application/json',
@@ -58,6 +55,7 @@ function Kitchen(){
                         <p> {product.name} </p>)}
                        
                         </div>
+
                         </div>
                     ))
                 }

@@ -3,9 +3,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: 0;
-
 }
-
 
 .App-menu{
     
@@ -23,7 +21,6 @@
     border: 1px solid #5D392A;
     font-weight: bold;
 }
-
 .btnExit {
     border:none;
     width:10vw;
@@ -134,18 +131,4 @@
     font-size: 12px;
     justify-content: flex-start;
 }
-
-
-/* .btn-finalizar,
-.btn-delete{
-    width: 35vw;
-    height: 2.6em;
-    background-color: #FBF395;
-    margin-top: 0.6em;
-    border-radius: 7px;
-    border: none;
-    font-size: 1.2em;
-    font-weight: bold;
-    cursor: pointer;
-} */
 
