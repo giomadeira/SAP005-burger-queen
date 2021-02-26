@@ -15,13 +15,13 @@ function Hall(){
         localStorage.clear()
         routerBack()
     }
-  
+    
+    const token  = localStorage.getItem("token");
     const [cafe, setCafe] = useState('');
     const [menu, setMenu] = useState('');
     const [drinks, setDrinks] = useState('');
     const [unidade, setUnidade] = useState([]);
     const [total, setTotal] = useState(0);
-    const [remove, setRemove] = useState([]);
     const [cadClient, setCadClient] = useState('');
     const [cadTable, setCadTable] = useState('');
 
@@ -32,19 +32,17 @@ function Hall(){
          console.log(unidade)
     }
 
-    const soma = () => {
-        setTotal(unidade.reduce((valorAnterior, valorAtual) => valorAnterior + valorAtual.price, 0))
 
-        console.log(total)
-        console.log(cadClient)
-        console.log(cadTable)
-
-        return total
-    }
+    useEffect (() => {
+      const soma = unidade.reduce((valorAnterior, valorAtual) => valorAnterior + valorAtual.price, 0)
+       setTotal(soma)
+    }, [unidade])
 
 
-    const removeItens = () => {
-        setRemove(unidade.splice(unidade.indexOf(''),1))
+    const removeProducts = (indice) => {
+        const productsFiltrados = unidade.filter( (_, index)=> index!= indice)
+        setUnidade(productsFiltrados)
+        console.log(indice)
         
     }
 
@@ -74,10 +72,6 @@ function Hall(){
                   })
     }
 
-  
-   
-    
-    const token  = localStorage.getItem("token");
 
     useEffect (() => {
         fetch('https://lab-api-bq.herokuapp.com/products/', {
@@ -122,10 +116,11 @@ function Hall(){
                             }
 
                             addPedido(itemObject)
+                            
                         }} key={Math.random()} className="container-cafe">
-                        <h1 key={Math.random()} className="divName">{item.name}</h1>
-                        <h1 key={Math.random()} className="divFlavor">{item.flavor}</h1>
-                        <h1 key={Math.random()} className="divPrice">R${item.price},00</h1>
+                        <p key={Math.random()} className="divName">{item.name}</p>
+                        <p key={Math.random()} className="divFlavor">{item.flavor}</p>
+                        <p key={Math.random()} className="divPrice">R${item.price},00</p>
                         </div>
                     ))
                 }
@@ -151,13 +146,14 @@ function Hall(){
                                 id:id
 
                             }
-
+                            
                             addPedido(itemObject)
+                            
                         }} key={Math.random()} className="container-allDay">
-                        <h1 key={Math.random()} className="divName">{item.name}</h1>
-                        <h1 key={Math.random()} className="divFlavor">{item.flavor}</h1>
-                        <h1 key={Math.random()} className="divComplement">{item.complement}</h1>
-                        <h1 key={Math.random()} className="divPrice">R${item.price},00</h1>
+                        <p key={Math.random()} className="divName">{item.name}</p>
+                        <p key={Math.random()} className="divFlavor">{item.flavor}</p>
+                        <p key={Math.random()} className="divComplement">{item.complement}</p>
+                        <p key={Math.random()} className="divPrice">R${item.price},00</p>
                         </div>
                     ))
                 }
@@ -169,40 +165,42 @@ function Hall(){
 
             <div className="comanda">
 
-            <div className="Register-Client">
+                <div className="Register-Client">
                 
             <input type='text' className='inputClient' placeholder="Cliente*" value={cadClient} onChange={(event)=> setCadClient(event.target.value)}/>
-
+          
             <input type='number'  className='inputTable' placeholder="Mesa*" value={cadTable} onChange={(event)=> setCadTable(event.target.value)}/>
           
         
                 </div>
 
                 {console.log(unidade)}
-            {
-                    unidade.length > 0 && unidade.map((item) => (
+            {          
 
+                    unidade.length > 0 && unidade.map((item, indice) => (
+                        
                         <div key={Math.random()} className="container-cardapio">
-                        <h1  className="commands-Name">{item.name}</h1>
-                        <h1  className="commands-Flavor">{item.flavor}</h1>
-                        <h1  className="commands-Price">R${item.price},00</h1>
-                        <h1  className="commands-Complement">{item.complement}</h1>
+                        <p  className="commands-Name">{item.name}</p>
+                        <p  className="commands-Flavor">{item.flavor}</p>
+                        <p  className="commands-Price">R${item.price},00</p>
+                        <p  className="commands-Complement">{item.complement}</p>
+                        <button className="btn-delete" onClick={() => removeProducts(indice)}>Excluir</button>
                         
                         </div>
                     ))
                 }
-
-            <button className="btn-finalizar" onClick={soma}>Finalizar</button>
-            <button className="btn-delete" onClick={removeItens}>Cancelar</button>
-             <button className="btn-enviar" onClick={enviar}>Enviar</button> 
+                <div className="btns">
+           
+            
+            </div>
             
             <div className="total-itens">
             <h1>Valor total ${total},00</h1>
             </div>
 
+            <button className="btn-enviar" onClick={enviar}>Enviar</button> 
 
-
-            </div>  
+            </div>
 
         </div>    
     );
