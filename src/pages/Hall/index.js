@@ -15,7 +15,8 @@ function Hall(){
         localStorage.clear()
         routerBack()
     }
-  
+    
+    const token  = localStorage.getItem("token");
     const [cafe, setCafe] = useState('');
     const [menu, setMenu] = useState('');
     const [drinks, setDrinks] = useState('');
@@ -71,14 +72,6 @@ function Hall(){
                   })
     }
 
-  
-   
-       
-         
-
-
-    
-    const token  = localStorage.getItem("token");
 
     useEffect (() => {
         fetch('https://lab-api-bq.herokuapp.com/products/', {
@@ -125,9 +118,9 @@ function Hall(){
                             addPedido(itemObject)
                             
                         }} key={Math.random()} className="container-cafe">
-                        <h1 key={Math.random()} className="divName">{item.name}</h1>
-                        <h1 key={Math.random()} className="divFlavor">{item.flavor}</h1>
-                        <h1 key={Math.random()} className="divPrice">R${item.price},00</h1>
+                        <p key={Math.random()} className="divName">{item.name}</p>
+                        <p key={Math.random()} className="divFlavor">{item.flavor}</p>
+                        <p key={Math.random()} className="divPrice">R${item.price},00</p>
                         </div>
                     ))
                 }
@@ -157,10 +150,10 @@ function Hall(){
                             addPedido(itemObject)
                             
                         }} key={Math.random()} className="container-allDay">
-                        <h1 key={Math.random()} className="divName">{item.name}</h1>
-                        <h1 key={Math.random()} className="divFlavor">{item.flavor}</h1>
-                        <h1 key={Math.random()} className="divComplement">{item.complement}</h1>
-                        <h1 key={Math.random()} className="divPrice">R${item.price},00</h1>
+                        <p key={Math.random()} className="divName">{item.name}</p>
+                        <p key={Math.random()} className="divFlavor">{item.flavor}</p>
+                        <p key={Math.random()} className="divComplement">{item.complement}</p>
+                        <p key={Math.random()} className="divPrice">R${item.price},00</p>
                         </div>
                     ))
                 }
@@ -187,10 +180,10 @@ function Hall(){
                     unidade.length > 0 && unidade.map((item, indice) => (
                         
                         <div key={Math.random()} className="container-cardapio">
-                        <h1  className="commands-Name">{item.name}</h1>
-                        <h1  className="commands-Flavor">{item.flavor}</h1>
-                        <h1  className="commands-Price">R${item.price},00</h1>
-                        <h1  className="commands-Complement">{item.complement}</h1>
+                        <p  className="commands-Name">{item.name}</p>
+                        <p  className="commands-Flavor">{item.flavor}</p>
+                        <p  className="commands-Price">R${item.price},00</p>
+                        <p  className="commands-Complement">{item.complement}</p>
                         <button className="btn-delete" onClick={() => removeProducts(indice)}>Excluir</button>
                         
                         </div>
