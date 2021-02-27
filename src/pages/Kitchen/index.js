@@ -6,6 +6,7 @@ function Kitchen(){
 
     const token  = localStorage.getItem("token");
     const [pedidos, setPedidos] = useState('');
+    const [recebido, setRecebido] = useState('');
     
 
         const history = useHistory()
@@ -18,6 +19,7 @@ function Kitchen(){
             localStorage.clear()
             routerBack()
         }
+       
 
     useEffect (() => {
         fetch('https://lab-api-bq.herokuapp.com/orders/', {
@@ -36,6 +38,39 @@ function Kitchen(){
                 
             })
     }, []);
+
+    
+    
+
+        const cozinhar = () => {
+        localStorage.getItem("token");
+        //localStorage.getItem(item.id ,"id");
+        routerBack ('/')
+
+        }
+            useEffect (() => {
+                fetch(`https://lab-api-bq.herokuapp.com/orders/'`, {
+
+                    method: 'PUT',
+                    headers: {
+                        'accept': 'application/json',
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Authorization':`${token}`
+
+                    },
+                    body:{
+                        "status": "preparando"
+                    }
+                })
+                    .then((response) => response.json()).then((json) => {
+                        const pendente = json.filter(item => item.status === 'pending')
+                        const pedidoRecebido = json.filter(item =>item.status === 'preparando')
+                        setRecebido(pedidoRecebido)
+                        console.log(json)
+                        
+                    })
+                    
+            }, []);
 
 
     return(
@@ -56,7 +91,7 @@ function Kitchen(){
                         <p key={Math.random()} className="divPrice">Status{item.status}</p>
                         <div key={Math.random()} className="divPrice">Produtos{item.Products.map((product) => 
                         <p> {product.name} </p>)}
-                       
+                       <button className="aceitarPedido" onClick={(cozinhar)}>Colocar na Braza</button>
                         </div>
                         </div>
                     ))
@@ -67,6 +102,5 @@ function Kitchen(){
     );
 };
 
-
-
+        
 export default Kitchen;
