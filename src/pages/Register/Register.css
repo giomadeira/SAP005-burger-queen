@@ -50,6 +50,12 @@
   cursor: pointer;
 }
 
+.btnRegister:active {
+  position:relative;
+  top: 5px;
+  box-shadow: none;
+}
+
 .legend{
   font-size: 33px;
   line-height: 39px;

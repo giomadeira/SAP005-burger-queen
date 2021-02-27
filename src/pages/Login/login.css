@@ -53,18 +53,23 @@ html{
   cursor: pointer;
 }
 
+.loginBtn:active {
+  position:relative;
+  top: 5px;
+  box-shadow: none;
+}
+
 .btnReturn {
   margin-right: auto;
   align-items:right;
-  background: linear-gradient(to right,#D56A00,#FA7D00, #FE972E, #FFB367);
+  background: transparent;
+  border: none;
   width: 110px;
   height: 65px;
-  border: 2px solid #5D392A;
   border-radius: 2px;
   margin-left: 1em;
   font-size: 30px;
   line-height: 47px;
-  color: #5D392A;
   margin-top: 30px;
   font-weight: bold;
   cursor:pointer;
@@ -87,6 +92,17 @@ html{
   font-size: 30px;
   font-weight: 600;
   color: #5D392A;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  padding: 0.5em;
+  text-align: center;
+}
+
+footer a {
+  cursor: pointer;
 }
 
 

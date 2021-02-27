@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import './Kitchen.css';
 
 function Kitchen(){
 
@@ -38,7 +40,7 @@ function Kitchen(){
     return(
 
         <div className="App-cozinha">
-             <button className="btnExit" onClick={logout}>Logout</button>
+             <button className="btnExit" onClick={logout}>{<ExitToAppIcon style={{ fontSize: 50 }}/>}</button>
        
         <h1 className="title">Pedidos em Preparo</h1>
             <div className="cafe">
