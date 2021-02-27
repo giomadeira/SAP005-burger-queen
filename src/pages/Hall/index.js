@@ -1,10 +1,24 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
+import DeleteIcon from '@material-ui/icons/Delete';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 import './Hall.css';
 
 // import Cardapio from '../../components/Cardapio'
 
 function Hall(){
+  
+    const token  = localStorage.getItem("token");
+    const [cafe, setCafe] = useState('');
+    const [menu, setMenu] = useState('');
+    const [drinks, setDrinks] = useState('');
+    const [unidade, setUnidade] = useState([]);
+    const [total, setTotal] = useState(0);
+    const [cadClient, setCadClient] = useState('');
+    const [cadTable, setCadTable] = useState('');
+
     const history = useHistory()
     const routerBack = () => {
         history.push('/')
@@ -15,16 +29,6 @@ function Hall(){
         localStorage.clear()
         routerBack()
     }
-    
-    const token  = localStorage.getItem("token");
-    const [cafe, setCafe] = useState('');
-    const [menu, setMenu] = useState('');
-    const [drinks, setDrinks] = useState('');
-    const [unidade, setUnidade] = useState([]);
-    const [total, setTotal] = useState(0);
-    const [cadClient, setCadClient] = useState('');
-    const [cadTable, setCadTable] = useState('');
-
 
 
     const addPedido = (item) => {
@@ -46,7 +50,49 @@ function Hall(){
         
     }
 
-    const enviar = () => {
+    const AddItem = (index) => {
+        let NewArrayProduto = [...unidade]
+        NewArrayProduto[index].qtd ++
+        NewArrayProduto[index].price = NewArrayProduto[index].initialPrice*NewArrayProduto[index].qtd
+        setUnidade(NewArrayProduto)
+        console.log(index)
+
+    }
+
+    const excluirItem = (index) => {
+        let NewArrayProduto = [...unidade]
+        NewArrayProduto[index].qtd --
+        NewArrayProduto[index].price = NewArrayProduto[index].initialPrice*NewArrayProduto[index].qtd
+        setUnidade(NewArrayProduto)
+        console.log(index)
+
+    }
+
+    useEffect (() => {
+        fetch('https://lab-api-bq.herokuapp.com/products/', {
+            method: 'GET',
+            headers: {
+                'accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization':`${token}`
+            },
+        })
+            .then((response) => response.json()).then((json) => {
+                const breakfast = json.filter(item => item.type === 'breakfast')
+                const allDay = json.filter(item => item.type === 'all-day')
+
+                setCafe(breakfast);
+                setMenu(allDay);
+                setDrinks(drinks);
+                console.log(json)
+                
+            })
+    }, []);
+
+
+    const enviar = (id) => {
+        if(id !== null){
+           
         fetch('https://lab-api-bq.herokuapp.com/orders', {
             method: "POST",
             headers: {
@@ -70,34 +116,14 @@ function Hall(){
                   .then((json) => {
                     console.log(json)
                   })
+                }
+                alert("Pedido enviado!")
     }
-
-
-    useEffect (() => {
-        fetch('https://lab-api-bq.herokuapp.com/products/', {
-            method: 'GET',
-            headers: {
-                'accept': 'application/json',
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization':`${token}`
-            },
-        })
-            .then((response) => response.json()).then((json) => {
-                const breakfast = json.filter(item => item.type === 'breakfast')
-                const allDay = json.filter(item => item.type === 'all-day')
-
-                setCafe(breakfast);
-                setMenu(allDay);
-                setDrinks(drinks);
-                console.log(json)
-                
-            })
-    }, []);
     
     
     return(
         <div className="App-menu">
-             <button className="btnExit" onClick={logout}>Logout</button>
+             <button className="btnExit" onClick={logout}>{<ExitToAppIcon style={{ fontSize: 50 }}/>}</button>
 
             <h1 className="title">Cardápio Café da Manhã</h1>
             <div className="cafe">
@@ -108,11 +134,11 @@ function Hall(){
                             const flavor = item.flavor
                             const price = item.price
                             const id = item.id
+                            const qtd = 1
+                            const initialPrice = item.price
                             const itemObject = {
-                                name:name,
-                                flavor:flavor,
-                                price:price,
-                                id:id
+                                name,flavor,price,id,qtd,
+                                initialPrice
                             }
 
                             addPedido(itemObject)
@@ -120,7 +146,14 @@ function Hall(){
                         }} key={Math.random()} className="container-cafe">
                         <p key={Math.random()} className="divName">{item.name}</p>
                         <p key={Math.random()} className="divFlavor">{item.flavor}</p>
-                        <p key={Math.random()} className="divPrice">R${item.price},00</p>
+                        {/* <p key={Math.random()} className="divPrice">R{item.price},00</p> */}
+                        <p className="App-valor-total">
+    
+          {Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(item.price)}
+        </p>
                         </div>
                     ))
                 }
@@ -138,12 +171,16 @@ function Hall(){
                             const price = item.price
                             const complement = item.complement
                             const id = item.id
+                            const qtd = 1
+                            const initialPrice = item.price
                             const itemObject = {
-                                name:name,
-                                flavor:flavor,
-                                price:price,
-                                complement:complement,
-                                id:id
+                                name,
+                                flavor,
+                                price,
+                                complement,
+                                id,
+                                qtd,
+                                initialPrice
 
                             }
                             
@@ -153,7 +190,14 @@ function Hall(){
                         <p key={Math.random()} className="divName">{item.name}</p>
                         <p key={Math.random()} className="divFlavor">{item.flavor}</p>
                         <p key={Math.random()} className="divComplement">{item.complement}</p>
-                        <p key={Math.random()} className="divPrice">R${item.price},00</p>
+                        {/* <p key={Math.random()} className="divPrice">R${item.price},00</p> */}
+                        <p className="App-valor-total">
+          
+          {Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(item.price)}
+        </p>
                         </div>
                     ))
                 }
@@ -182,9 +226,18 @@ function Hall(){
                         <div key={Math.random()} className="container-cardapio">
                         <p  className="commands-Name">{item.name}</p>
                         <p  className="commands-Flavor">{item.flavor}</p>
-                        <p  className="commands-Price">R${item.price},00</p>
+                        <p  className="commands-qtd">{item.qtd}</p>
+                        <p className="App-valor-total">
+          Valor Total:{" "}
+          {Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(item.price)}
+        </p>
                         <p  className="commands-Complement">{item.complement}</p>
-                        <button className="btn-delete" onClick={() => removeProducts(indice)}>Excluir</button>
+                        <button className="btn-add" onClick={() => AddItem(indice)}>{<AddIcon style={{ fontSize: 15 }}/>}</button>
+                        <button className="btn-add" onClick={() => excluirItem(indice)}>{<RemoveIcon style={{ fontSize: 15 }}/>}</button>
+                        <button className="btn-delete" onClick={() => removeProducts(indice)}>{<DeleteIcon />}</button>
                         
                         </div>
                     ))
@@ -195,7 +248,12 @@ function Hall(){
             </div>
             
             <div className="total-itens">
-            <h1>Valor total ${total},00</h1>
+            {/* <h1>Valor total ${total},00</h1> */}
+            Valor Total:{" "}
+          {Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(total)}
             </div>
 
             <button className="btn-enviar" onClick={enviar}>Enviar</button> 
