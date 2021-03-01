@@ -8,8 +8,10 @@ function Kitchen(){
     const token  = localStorage.getItem("token");
     const [pedidos, setPedidos] = useState('');
 
+
     const [recebido, setRecebido] = useState('');
     
+
 
 
 
