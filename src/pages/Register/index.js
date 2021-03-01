@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@material-ui/core'
+import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn';
 import './Register.css';
 import logo from './logo.png';
 
@@ -33,12 +34,10 @@ function Register() {
                         body: `email=${email}&password=${password}&role=${role}&restaurant=NaBrazaBurger's&name=${name}`
                     })
                         .then((response) => response.json()).then((json) => {
-                            window.alert(`Cadastro realizado com sucesso!!`);
                              console.log(json);
-                             
-                            if (json.id !== null) {
+                                window.alert(`Cadastro realizado com sucesso!!`);
                                 routerBack();
-                            }
+                            
                             
                             // mensagem de confirmação
                             // usar setTimeout
@@ -51,16 +50,16 @@ function Register() {
     return (
 
         <div className="App">
-            <button className="btnReturn" onClick={ routerBack}>Voltar</button>
+            <button className="btnReturn" onClick={ routerBack}>{<KeyboardReturnIcon style={{ fontSize: 50 }}/>}</button>
         
             <p className="register"> <img src={logo}/></p>
             <form className="loginForm">
 
-                <input type="text" placeholder="Nome" value={name} id="cadName" onChange={(event) => setName(event.target.value)} />
+                <input type="text" placeholder="Nome*" value={name} id="cadName" onChange={(event) => setName(event.target.value)} />
 
-                <input type="text" placeholder="E-mail" value={email} id="cadEmail" onChange={(event) => setEmail(event.target.value)} />
+                <input type="text" placeholder="E-mail*" value={email} id="cadEmail" onChange={(event) => setEmail(event.target.value)} />
 
-                <input type="password" placeholder="Senha" value={password} id="cadPassword" onChange={(event) => setPassword(event.target.value)} />
+                <input type="password" placeholder="Senha*" value={password} id="cadPassword" onChange={(event) => setPassword(event.target.value)} />
 
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Cargo</FormLabel>
