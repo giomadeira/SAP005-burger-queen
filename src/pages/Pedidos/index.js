@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import './Kitchen.css';
 
-function Kitchen(){
+
+function Pedidos(){
 
     const token  = localStorage.getItem("token");
-    const [pedidos, setPedidos] = useState('');
+    const [pedidosProntos, setPedidosProntos] = useState('');
+    const [pedidosEntregar, setPedidosEntregar] = useState ('');
 
 
 
@@ -32,17 +33,19 @@ function Kitchen(){
             },
         })
             .then((response) => response.json()).then((json) => {
-                const pendente = json.filter(item => item.status === 'pending')
-                setPedidos(pendente)
+                const feito = json.filter(item => item.status === 'pronto')
+                const entrega = json.filter(item => item.status === 'entregue')
+                setPedidosProntos(feito)
+                setPedidosEntregar(entrega)
                 console.log(json)
                 
             })
-    }, []);
+    }, [pedidosProntos,pedidosEntregar]);
 
     
     
 
-    const cozinhar = (event) => {
+    const entregar = (event) => {
     const token = localStorage.getItem("token");
 
 
@@ -63,7 +66,7 @@ function Kitchen(){
 
                     },
                     body:JSON.stringify({
-                        "status": "pronto"
+                        "status": "entregue"
                     })
                 })
                     .then((response) => response.json()).then((json) => {
@@ -71,18 +74,18 @@ function Kitchen(){
                         console.log(json)
                         
                     })
-                    
+                
     
         }
 
     return(
 
-        <div className="App-cozinha">
+        <div className="App-pedidos">
              <button className="btnExit" onClick={logout}>{<ExitToAppIcon style={{ fontSize: 50 }}/>}</button>
        
-        <h1 className="title">Pedidos em Preparo</h1>
-            <div className="fazer-pedidos">
-                {pedidos && pedidos.map((item) => (
+        <h1 className="title">Pedidos Prontos </h1>
+            <div className="pedidos-prontos">
+                {pedidosProntos && pedidosProntos.map((item) => (
                         
                         <div id={item.id}
                             
@@ -93,7 +96,28 @@ function Kitchen(){
                         <p key={Math.random()} className="divPrice">Status: {item.status}</p>
                         <div key={Math.random()} className="divPrice">Produtos: {item.Products.map((product) => 
                         <p> {product.name} </p>)}
-                       <button className="alterarPedido" onClick={cozinhar}>Pedido Pronto!</button>
+                       <button className="alterarPedido" onClick={entregar}>Entregar Pedido</button>
+                        </div>
+
+                        </div>
+                    ))
+                }
+            </div>
+
+            <h1 className="title">Pedidos Entregues</h1>
+            <div className="entregar-pedidos">
+                {pedidosEntregar && pedidosEntregar.map((item) => (
+                        
+                        <div id={item.id}
+                            
+                         key={Math.random()} className="container-pedidos">
+                        <p key={Math.random()} className="divName">Nome do Cliente: {item.client_name}</p>
+                        <p key={Math.random()} className="divFlavor">Id: {item.id}</p>
+                        <p key={Math.random()} className="divPrice">Nº Mesa: {item.table}</p>
+                        <p key={Math.random()} className="divPrice">Status: {item.status}</p>
+                        <div key={Math.random()} className="divPrice">Produtos: {item.Products.map((product) => 
+                        <p> {product.name} </p>)}
+
                         </div>
 
                         </div>
@@ -102,9 +126,18 @@ function Kitchen(){
             </div>
 
         </div>
+
+                
+
     );
 };
 
+
         
-export default Kitchen;
+export default Pedidos;
+        
+  
+
+
+
         

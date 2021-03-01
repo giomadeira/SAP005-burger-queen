@@ -121,7 +121,7 @@ function Hall(){
                   })
                 }
 
-                alert("Pedido enviado!")
+                window.alert("Pedido enviado!")
 
     }
     
