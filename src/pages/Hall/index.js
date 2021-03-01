@@ -6,7 +6,6 @@ import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import TextField from '@material-ui/core/TextField';
 import logo from './logo.png';
-
 import './Hall.css';
 
 // import Cardapio from '../../components/Cardapio'
@@ -120,20 +119,18 @@ function Hall(){
                     console.log(json)
                   })
                 }
-
-                window.alert("Pedido enviado!")
-
+                
     }
     
     
     return(
         <div className="App-menu">
 
-                 
-       <p className="img-logo"> <img src={logo}/></p>
+        <div className="cabecalho-menu">
+        <p className="img-logo"> <img src={logo}/></p>
             
             <button className="btnExit" onClick={logout}>{<ExitToAppIcon style={{ fontSize: 50 }}/>}</button>
-            
+            </div>
 
             <h1 className="title">Cardápio Café da Manhã</h1>
             <div className="cafe">
@@ -156,7 +153,6 @@ function Hall(){
                         }} key={Math.random()} className="container-cafe">
                         <p key={Math.random()} className="divName">{item.name}</p>
                         <p key={Math.random()} className="divFlavor">{item.flavor}</p>
-
                         <p className="div-total">
     
                          {Intl.NumberFormat("pt-BR", {
@@ -164,7 +160,6 @@ function Hall(){
                             currency: "BRL",
                              }).format(item.price)}
                          </p>
-
                         </div>
                     ))
                 }
@@ -206,7 +201,6 @@ function Hall(){
                         </div>
                         <div className="name-complement">
                         <p key={Math.random()} className="divComplement">{item.complement}</p>
-
                         </div>
                         <p className="div-total-lunch">
           
@@ -215,7 +209,6 @@ function Hall(){
                              currency: "BRL",
                           }).format(item.price)}
                      </p>
-
                         </div>
                     ))
                 }
@@ -248,7 +241,6 @@ function Hall(){
 
                     unidade.length > 0 && unidade.map((item, indice) => (
                         
-
                         <div key={Math.random()} className="container-comanda">
                             
                         <div className="name-commands"> <p  className="commands-Name">{item.name}</p></div>     
@@ -266,7 +258,6 @@ function Hall(){
                         
                         <button className="btn-add" onClick={() => AddItem(indice)}>{<AddIcon style={{ fontSize: 15 }}/>}</button>
                         <button className="btn-remove" onClick={() => excluirItem(indice)}>{<RemoveIcon style={{ fontSize: 15 }}/>}</button>
-
                         <button className="btn-delete" onClick={() => removeProducts(indice)}>{<DeleteIcon />}</button>
                         
                         </div>
@@ -277,9 +268,7 @@ function Hall(){
             
             </div>
             
-
             <div className="total-comanda">
-
             Valor Total:{" "}
           {Intl.NumberFormat("pt-BR", {
             style: "currency",

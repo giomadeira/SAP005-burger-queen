@@ -3,7 +3,20 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: 0;
-  outline: 0;
+    outline: 0;
+}
+
+.cabecalho-menu{
+    display:flex;
+    justify-content:space-between;
+    width:100%;
+    /* align-items: center; */
+}
+
+.img-logo{
+    /* margin-left: 17em; */
+    margin-left: 27%;
+   
 }
 
 .App-menu{
@@ -72,8 +85,6 @@
     top: 5px;
     box-shadow: none;
   }
-
-
 
 .cafe{
     margin-top: 2em;
@@ -244,4 +255,3 @@ font-weight: bold;
 .btn-delete{
     margin-right:2em;
 }
-
