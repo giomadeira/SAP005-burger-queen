@@ -8,6 +8,13 @@ function Kitchen(){
     const token  = localStorage.getItem("token");
     const [pedidos, setPedidos] = useState('');
 
+
+    const [recebido, setRecebido] = useState('');
+    
+
+
+
+
         const history = useHistory()
         const routerBack = () => {
             history.push('/')
@@ -18,6 +25,7 @@ function Kitchen(){
             localStorage.clear()
             routerBack()
         }
+       
 
     useEffect (() => {
         fetch('https://lab-api-bq.herokuapp.com/orders/', {
@@ -36,6 +44,41 @@ function Kitchen(){
             })
     }, []);
 
+    
+    
+
+        const Cozinhar = (event) => {
+        const token = localStorage.getItem("token");
+
+
+        const parent = event.target.parentNode.parentNode;
+        const idMudar = parent.getAttribute('id');
+        localStorage.setItem("id", idMudar);
+        const idPedido = localStorage.getItem('id')
+        console.log(idPedido);
+
+        
+                fetch(`https://lab-api-bq.herokuapp.com/orders/${idPedido}`, {
+
+                    method: 'PUT',
+                    headers: {
+                        'accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization':`${token}`
+
+                    },
+                    body:JSON.stringify({
+                        "status": "pronto"
+                    })
+                })
+                    .then((response) => response.json()).then((json) => {
+                        
+                        console.log(json)
+                        
+                    })
+                    
+    
+        }
 
     return(
 
@@ -43,19 +86,19 @@ function Kitchen(){
              <button className="btnExit" onClick={logout}>{<ExitToAppIcon style={{ fontSize: 50 }}/>}</button>
        
         <h1 className="title">Pedidos em Preparo</h1>
-            <div className="cafe">
+            <div className="fazer-pedidos">
                 {pedidos && pedidos.map((item) => (
                         
-                        <div onClick={() => {
+                        <div id={item.id}
                             
-                        }} key={Math.random()} className="container-pedidos">
-                        <p key={Math.random()} className="divName">Nome do Cliente{item.client_name}</p>
-                        <p key={Math.random()} className="divFlavor">Id{item.id}</p>
-                        <p key={Math.random()} className="divPrice">Nº Mesa{item.table}</p>
-                        <p key={Math.random()} className="divPrice">Status{item.status}</p>
-                        <div key={Math.random()} className="divPrice">Produtos{item.Products.map((product) => 
+                         key={Math.random()} className="container-pedidos">
+                        <p key={Math.random()} className="divName">Nome do Cliente: {item.client_name}</p>
+                        <p key={Math.random()} className="divFlavor">Id: {item.id}</p>
+                        <p key={Math.random()} className="divPrice">Nº Mesa: {item.table}</p>
+                        <p key={Math.random()} className="divPrice">Status: {item.status}</p>
+                        <div key={Math.random()} className="divPrice">Produtos: {item.Products.map((product) => 
                         <p> {product.name} </p>)}
-                       
+                       <button className="alterarPedido" onClick={Cozinhar}>Pedido Pronto!</button>
                         </div>
 
                         </div>
@@ -67,6 +110,5 @@ function Kitchen(){
     );
 };
 
-
-
+        
 export default Kitchen;

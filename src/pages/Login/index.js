@@ -67,7 +67,7 @@ function Login() {
 
                 <button className="loginBtn" onClick={btnLogin}>Acessar</button>
 
-                <p className="novo"> Novo por aqui? <Link href="/register">Registre-se</Link></p>
+                <p className="novo"> Brazete novo no pedaço? <Link href="/register">Registre-se!</Link></p>
 
                 <footer> © Desenvolvido por <a href="https://github.com/CamilaKikuchi" target="_blank">Camila Kikuchi</a>, <a href="https://github.com/giomadeira" target="_blank">Giovana Madeira</a>, <a href="https://github.com/julianaads" target="_blank">Juliana Souza</a></footer>
 
