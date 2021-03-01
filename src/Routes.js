@@ -6,6 +6,7 @@ import Hall from './pages/Hall';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Kitchen from './pages/Kitchen';
+import Pedidos from './pages/Pedidos';
 
 //função responsável por determinar as rotas
 
@@ -28,6 +29,7 @@ const Routes = () => {
             <Route path="/Register" exact component={Register}  />
             <PrivateRoute path="/Hall" exact component={Hall}  />
             <PrivateRoute path="/Kitchen" exact component={Kitchen}  />
+            <Route path="/Pedidos" exact component={Pedidos}  />
         </Switch>
         </BrowserRouter>
     )
