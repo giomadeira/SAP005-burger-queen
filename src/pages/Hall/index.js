@@ -119,10 +119,12 @@ function Hall(){
                     console.log(json)
                   })
                 }
-                
+            
+            alert("Pedido enviado!")
+     
     }
     
-    
+        
     return(
         <div className="App-menu">
 

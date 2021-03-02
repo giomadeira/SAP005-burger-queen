@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 
-function Pedidos(){
+function Orders(){
 
     const token  = localStorage.getItem("token");
     const [pedidosProntos, setPedidosProntos] = useState('');
@@ -40,7 +40,7 @@ function Pedidos(){
                 console.log(json)
                 
             })
-    }, [pedidosProntos,pedidosEntregar]);
+    }, []);
 
     
     
@@ -134,7 +134,7 @@ function Pedidos(){
 
 
         
-export default Pedidos;
+export default Orders;
         
   
 

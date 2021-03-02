@@ -45,12 +45,12 @@ function Kitchen(){
     
     
 
-        const Cozinhar = (event) => {
+        const cozinhar = (event) => {
         const token = localStorage.getItem("token");
 
 
-        const parent = event.target.parentNode.parentNode;
-        const idMudar = parent.getAttribute('id');
+        const parent = event.target.parentNode.parentNode.parentNode;
+        const idMudar = parent.getAttribute('id'); 
         localStorage.setItem("id", idMudar);
         const idPedido = localStorage.getItem('id')
         console.log(idPedido);
@@ -60,9 +60,11 @@ function Kitchen(){
 
                     method: 'PUT',
                     headers: {
-                        'accept': 'application/json',
                         'Content-Type': 'application/json',
-                        'Authorization':`${token}`
+                        'Authorization':`${token}`,
+                        'Access-Control-Allow-Origin': '*', 
+                        'Access-Control-Allow-Credentials': true,
+                        'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT'
 
                     },
                     body:JSON.stringify({
@@ -77,7 +79,6 @@ function Kitchen(){
                     
     
         }
-
     return(
 
         <div className="App-cozinha">
@@ -96,11 +97,11 @@ function Kitchen(){
                          key={Math.random()} className="container-requests">
                         <div className="requests-name"><p key={Math.random()} className="divName">Nome do Cliente: {item.client_name}</p></div>
                         <div className="requests-Id"><p key={Math.random()} className="divId">Id: {item.id}</p></div>
-                        <div className="requests-table"><p key={Math.random()} className="divTable">Nº Mesa: {item.table}</p></div>
+                        <div className="requests-table"><p key={Math.random()} className="divTable">Mesa: {item.table}</p></div>
                         <div className="requests-status"><p key={Math.random()} className="divStatus">Status: {item.status}</p></div>
                         <div className="requests-products"><div key={Math.random()} className="divProducts">Produtos: {item.Products.map((product) => 
                         <p> {product.name} </p>)}
-                       <button className="btn-alterar-Pedido" onClick={Cozinhar}>Pedido Pronto!</button>
+                       <button className="btn-alterar-Pedido" onClick={cozinhar}>Pedido Pronto!</button>
                         </div>
                                 </div>
                         </div>
