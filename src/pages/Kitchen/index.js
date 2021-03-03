@@ -8,10 +8,7 @@ function Kitchen(){
 
     const token  = localStorage.getItem("token");
     const [pedidos, setPedidos] = useState('');
-
-
-    const [recebido, setRecebido] = useState('');
-    
+    const [pedidosEntregar, setPedidosEntregar] = useState ([]);
 
         const history = useHistory()
         const routerBack = () => {
@@ -36,7 +33,9 @@ function Kitchen(){
         })
             .then((response) => response.json()).then((json) => {
                 const pendente = json.filter(item => item.status === 'pending')
+                const entrega = json.filter(item => item.status === 'entregue')
                 setPedidos(pendente)
+                setPedidosEntregar(entrega)
                 console.log(json)
                 
             })
@@ -104,6 +103,27 @@ function Kitchen(){
                        <button className="btn-alterar-Pedido" onClick={cozinhar}>Pedido Pronto!</button>
                         </div>
                                 </div>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <h1 className="title">Pedidos Entregue aos Clientes</h1>
+            <div className="entregar-pedidos">
+                {pedidosEntregar && pedidosEntregar.map((item) => (
+                        
+                        <div id={item.id}
+                            
+                         key={Math.random()} className="container-pedidos">
+                        <p key={Math.random()} className="divName">Nome do Cliente: {item.client_name}</p>
+                        <p key={Math.random()} className="divFlavor">Id: {item.id}</p>
+                        <p key={Math.random()} className="divPrice">Nº Mesa: {item.table}</p>
+                        <p key={Math.random()} className="divPrice">Status: {item.status}</p>
+                        <div key={Math.random()} className="divPrice">Produtos: {item.Products.map((product) => 
+                        <p> {product.name} </p>)}
+
+                        </div>
+
                         </div>
                     ))
                 }

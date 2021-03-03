@@ -4,7 +4,6 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
-import TextField from '@material-ui/core/TextField';
 import logo from './logo.png';
 import './Hall.css';
 
@@ -25,6 +24,11 @@ function Hall(){
     const routerBack = () => {
         history.push('/')
     }
+
+    const routerOrders = () => {
+        history.push('/Orders')
+    }
+
 
     const logout = () => {
         localStorage.getItem("token");
@@ -109,7 +113,7 @@ function Hall(){
                   unidade.map((item) => (
                     {
                       "id": Number(item.id),
-                      "qtd": 1
+                      "qtd": 1 
                     }
                   ))
                 })
@@ -133,6 +137,8 @@ function Hall(){
             
             <button className="btnExit" onClick={logout}>{<ExitToAppIcon style={{ fontSize: 50 }}/>}</button>
             </div>
+
+            <button className="go-Order" onClick={routerOrders}>Status dos Pedidos</button>
 
             <h1 className="title">Cardápio Café da Manhã</h1>
             <div className="cafe">
