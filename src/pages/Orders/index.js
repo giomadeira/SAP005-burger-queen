@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import './Orders.css';
 
 
 function Orders(){
 
     const token  = localStorage.getItem("token");
-    const [pedidosProntos, setPedidosProntos] = useState('');
-    const [pedidosEntregar, setPedidosEntregar] = useState ('');
+    const [pedidosProntos, setPedidosProntos] = useState([]);
+    const [pedidosEntregar, setPedidosEntregar] = useState ([]);
 
 
 
@@ -29,15 +30,19 @@ function Orders(){
             headers: {
                 'accept': 'application/json',
                 'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization':`${token}`
+                'Authorization':`${token}`,
+                'Access-Control-Allow-Origin': '*', 
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT'
             },
         })
-            .then((response) => response.json()).then((json) => {
+            .then((response) => response.json())
+            .then((json) => {
                 const feito = json.filter(item => item.status === 'pronto')
                 const entrega = json.filter(item => item.status === 'entregue')
                 setPedidosProntos(feito)
                 setPedidosEntregar(entrega)
-                console.log(json)
+        
                 
             })
     }, []);
@@ -55,26 +60,33 @@ function Orders(){
     const idPedido = localStorage.getItem('id')
     console.log(idPedido);
 
-        
+   
         fetch(`https://lab-api-bq.herokuapp.com/orders/${idPedido}`, {
 
             method: 'PUT',
             headers: {
                     'accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization':`${token}`
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization':`${token}`,
+                'Access-Control-Allow-Origin': '*', 
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT'
 
                     },
                     body:JSON.stringify({
                         "status": "entregue"
                     })
                 })
-                    .then((response) => response.json()).then((json) => {
-                        
-                        console.log(json)
-                        
-                    })
-                
+        .then((response) => response.json())
+        .then((json) => {
+            
+            const feito = json.filter(item => item.status === 'pronto')
+            const entrega = json.filter(item => item.status === 'entregue')
+            setPedidosProntos(feito)
+            setPedidosEntregar(entrega)       
+            
+        })
+           
     
         }
 

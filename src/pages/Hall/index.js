@@ -227,11 +227,11 @@ function Hall(){
                 <form>
 
                     <div className="input-Client">
-            <input type='text' className='inputClient' placeholder="Cliente*" value={cadClient} onChange={(event)=> setCadClient(event.target.value)}/>
+            <input type='text' className='inputClient' placeholder="Cliente" value={cadClient} onChange={(event)=> setCadClient(event.target.value)}/>
                 </div>
 
                 <div className="input-table">
-            <input type='number'  className='inputTable' placeholder="Mesa*" value={cadTable} onChange={(event)=> setCadTable(event.target.value)}/>
+            <input type='number'  className='inputTable' placeholder="Mesa" value={cadTable} onChange={(event)=> setCadTable(event.target.value)}/>
             </div>
 
                 </form>
