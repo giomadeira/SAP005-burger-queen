@@ -10,10 +10,8 @@ function Orders(){
     const [pedidosProntos, setPedidosProntos] = useState([]);
     const [pedidosEntregar, setPedidosEntregar] = useState ([]);
 
-
-
-        const history = useHistory()
-        const routerBack = () => {
+    const history = useHistory()
+    const routerBack = () => {
             history.push('/')
         }
     
@@ -22,7 +20,7 @@ function Orders(){
             localStorage.clear()
             routerBack()
         }
-       
+
 
     useEffect (() => {
         fetch('https://lab-api-bq.herokuapp.com/orders/', {
@@ -42,13 +40,12 @@ function Orders(){
                 const entrega = json.filter(item => item.status === 'entregue')
                 setPedidosProntos(feito)
                 setPedidosEntregar(entrega)
+                console.log(json)
         
                 
             })
     }, []);
 
-    
-    
 
     const entregar = (event) => {
     const token = localStorage.getItem("token");
