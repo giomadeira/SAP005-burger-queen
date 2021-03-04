@@ -1,41 +1,13 @@
-/*import React, {useState,useEffect} from 'react';
-import { Fragment } from 'react';
-import './Loading.css'
+import React from "react";
+import naBrasa from './../img/naBrasa.gif'
 
-function Loading({loading, setLoading}) {
-  const [loading, setLoading] = useState(true);
-
-  function fakeRequest() {
-    return new Promise(resolve => setTimeout(() => resolve(), 8000));
-  }
-
-  useEffect(() => {
-    fakeRequest().then(() => {
-      const element = document.querySelector(".loader-container");
-      if (element) {
-        element.remove();
-        setLoading(!loading);
-      }
-    });
-  }, [loading]);
-
-  if (loading) {
-    return null;
-  }
+function Loading({id}) {
 
   return (
     <>
-      <div className="loader-container">
-        <p>Aquecendo a Brasa...</p>
-        <div className="loader">
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-      
+      <img id={id} className="loading-gif" alt="Loading" src={naBrasa}/>
     </>
- );
- 
+  );
 }
-export default Loading
-*/
+  
+export default Loading;
