@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import logo from './logo.png';
+import naBrasa from './naBrasa.gif';
 import './Kitchen.css';
 
 function Kitchen(){
@@ -84,6 +85,8 @@ function Kitchen(){
     return(
 
         <div className="App-cozinha">
+
+        <p className="gif"> <img src={naBrasa}/></p>
 
             <div className="cabecalho-kitchen">
         <p className="img-logo"> <img src={logo}/></p>

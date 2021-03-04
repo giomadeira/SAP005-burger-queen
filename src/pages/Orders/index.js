@@ -13,6 +13,7 @@ function Orders(){
     const [pedidosProntos, setPedidosProntos] = useState([]);
     const [pedidosEntregar, setPedidosEntregar] = useState ([]);
     const [loading, setLoading] = useState(true);
+
     
         const history = useHistory()
         const routerBack = () => {
@@ -48,10 +49,12 @@ function Orders(){
                 const entrega = json.filter(item => item.status === 'entregue')
                 setPedidosProntos(feito)
                 setPedidosEntregar(entrega)
+
                 setTimeout(() => {
                 setLoading(false)
                 }, 1000);
                 
+
                 console.log(json)
 
                 
@@ -168,8 +171,6 @@ function Orders(){
             </div>
     )
 
-    
-                
 
     );
 };
