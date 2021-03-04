@@ -45,7 +45,7 @@
 .btnRegister{
   margin: 0 auto;
   width: 40%;
-  background: linear-gradient(to right,#D56A00,#FA7D00, #FE972E, #FFB367);
+  background: linear-gradient(to right, rgba(248, 196, 83, 0.5), rgba(241, 240, 220, 0.575));
   width: 200px;
   height: 65px;
   border: 2px solid #5D392A;

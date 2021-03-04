@@ -89,7 +89,7 @@ html{
 }
 
 .novo{
-  margin-top: 40px;
+  margin-top: 3em;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -99,13 +99,10 @@ html{
 }
 
 .footer {
-  margin-top: 0px;
-  height: 0px;
-  width: 100%;
-  align-self: flex-end;
+  margin-top: 5em;
   display: flex;
   flex-wrap: wrap;
-  position: static;
+  justify-content: center;
 }
 
 footer a {
