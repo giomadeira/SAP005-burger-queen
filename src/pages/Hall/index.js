@@ -113,7 +113,7 @@ function Hall(){
                   unidade.map((item) => (
                     {
                       "id": Number(item.id),
-                      "qtd": 1 
+                      "qtd": (item.qtd)
                     }
                   ))
                 })

@@ -10,6 +10,7 @@ function Orders(){
 
     const token  = localStorage.getItem("token");
     const [pedidosProntos, setPedidosProntos] = useState([]);
+    const [pedidosEntregar, setPedidosEntregar] = useState ([]);
     
         const history = useHistory()
         const routerBack = () => {
@@ -42,7 +43,9 @@ function Orders(){
             .then((response) => response.json())
             .then((json) => {
                 const feito = json.filter(item => item.status === 'pronto')
+                const entrega = json.filter(item => item.status === 'entregue')
                 setPedidosProntos(feito)
+                setPedidosEntregar(entrega)
                 console.log(json)
 
                 
@@ -82,11 +85,20 @@ function Orders(){
             const filtroPedido = pedidosProntos.filter (item => item.id !== idPedido )
             setPedidosProntos(filtroPedido)       
             console.log(json)
+            console.log(filtroPedido)
+            setPedidosEntregar([...pedidosEntregar, json])
+            //setPedidosEntregar()
+            
+            
 
         })
            
     
         }
+
+        useEffect (() => {
+            console.log(pedidosEntregar)
+        },[pedidosEntregar])
 
     return(
 
@@ -114,6 +126,27 @@ function Orders(){
                         <p> {product.name} </p>)}
 
                        <button className="alterarPedido" onClick={entregar}>Entregar Pedido</button>
+
+                        </div>
+
+                        </div>
+                    ))
+                }
+            </div>
+
+            <h1 className="title">Pedidos Entregue aos Clientes</h1>
+            <div className="entregar-pedidos">
+                {pedidosEntregar && pedidosEntregar.map((item) => (
+                        
+                        <div id={item.id}
+                            
+                         key={Math.random()} className="container-pedidos">
+                        <p key={Math.random()} className="divName">Nome do Cliente: {item.client_name}</p>
+                        <p key={Math.random()} className="divFlavor">Id: {item.id}</p>
+                        <p key={Math.random()} className="divPrice">Nº Mesa: {item.table}</p>
+                        <p key={Math.random()} className="divPrice">Status: {item.status}</p>
+                        <div key={Math.random()} className="divPrice">Produtos: {item.Products.map((product) => 
+                        <p> {product.name} </p>)}
 
                         </div>
 
