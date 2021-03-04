@@ -20,6 +20,7 @@
 }
 
 .App-menu{
+        background: linear-gradient(rgba(247, 247, 99, 0.616), rgba(241, 175, 51, 0.548), rgba(243, 52, 52, 0.425));
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -96,7 +97,7 @@
     flex-wrap: wrap;
     height: 90px; 
     width:90vw;
-    border: 1px solid #FFB367;
+    border: 1px solid #f78c21;
     align-items: center;
     font-size: 30px;
     font-weight: bold;
