@@ -27,7 +27,6 @@ function Orders(){
             routerBack()
         }
 
-
     useEffect (() => {
         fetch('https://lab-api-bq.herokuapp.com/orders/', {
             method: 'GET',
@@ -48,9 +47,6 @@ function Orders(){
                 
             })
     }, []);
-
-
-    
 
     const entregar = (event) => {
     const token = localStorage.getItem("token");
