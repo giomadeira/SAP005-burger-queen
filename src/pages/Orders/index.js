@@ -1,40 +1,42 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import logo from './logo.png';
 import './Orders.css';
+import Loading from './../../Loading/Loading.js'
 
 
 
-function Orders(){
+function Orders() {
 
-    const token  = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
     const [pedidosProntos, setPedidosProntos] = useState([]);
-    
-        const history = useHistory()
-        const routerBack = () => {
+    const [loading, setLoading] = useState(true);
 
-            history.push('/')
-        }
+    const history = useHistory()
+    const routerBack = () => {
 
-        const routerHall = () => {
-            history.push('/Hall')
-        }
-    
-        const logout = () => {
-            localStorage.getItem("token");
-            localStorage.clear()
-            routerBack()
-        }
+        history.push('/')
+    }
 
-    useEffect (() => {
+    const routerHall = () => {
+        history.push('/Hall')
+    }
+
+    const logout = () => {
+        localStorage.getItem("token");
+        localStorage.clear()
+        routerBack()
+    }
+
+    useEffect(() => {
         fetch('https://lab-api-bq.herokuapp.com/orders/', {
             method: 'GET',
             headers: {
                 'accept': 'application/json',
                 'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization':`${token}`,
-                'Access-Control-Allow-Origin': '*', 
+                'Authorization': `${token}`,
+                'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Credentials': true,
                 'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT'
             },
@@ -43,55 +45,59 @@ function Orders(){
             .then((json) => {
                 const feito = json.filter(item => item.status === 'pronto')
                 setPedidosProntos(feito)
+                setLoading(false)
                 console.log(json)
 
-                
+
             })
     }, []);
 
     const entregar = (event) => {
-    const token = localStorage.getItem("token");
-    
+        const token = localStorage.getItem("token");
 
-    const parent = event.target.parentNode.parentNode;
-    const idMudar = parent.getAttribute('id');
-    localStorage.setItem("id", idMudar);
-    const idPedido = Number (localStorage.getItem('id'))
-    console.log(idPedido);
 
-   
+        const parent = event.target.parentNode.parentNode;
+        const idMudar = parent.getAttribute('id');
+        localStorage.setItem("id", idMudar);
+        const idPedido = Number(localStorage.getItem('id'))
+        console.log(idPedido);
+
+
         fetch(`https://lab-api-bq.herokuapp.com/orders/${idPedido}`, {
 
             method: 'PUT',
             headers: {
-                    'accept': 'application/json',
+                'accept': 'application/json',
                 'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization':`${token}`,
-                'Access-Control-Allow-Origin': '*', 
+                'Authorization': `${token}`,
+                'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Credentials': true,
                 'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT'
 
-                    },
-                    body:JSON.stringify({
-                        "status": "entregue"
-                    })
-                })
-        .then((response) => response.json())
-        .then((json) => {
-    
-            const filtroPedido = pedidosProntos.filter (item => item.id !== idPedido )
-            setPedidosProntos(filtroPedido)       
-            console.log(json)
-
+            },
+            body: JSON.stringify({
+                "status": "entregue"
+            })
         })
-           
-    
-        }
+            .then((response) => response.json())
+            .then((json) => {
 
-    return(
+                const filtroPedido = pedidosProntos.filter(item => item.id !== idPedido)
+                setPedidosProntos(filtroPedido)
+                console.log(json)
+
+            })
+     
+
+    }
+
+    return (
+        <>
+            {loading ?
+                (<Loading loading={loading} 
+                setLoading={setLoading}/>) : (   
 
         <div className="App-pedidos">
-
         <div className="cabecalho-kitchen">
         <p className="img-logo"> <img src={logo}/></p>
              <button className="btnExit" onClick={logout}>{<ExitToAppIcon style={{ fontSize: 50 }}/>}</button>
@@ -121,20 +127,15 @@ function Orders(){
                     ))
                 }
             </div>
-
         </div>
-
-                
+                )}
+        </>
 
     );
+
 };
 
 
-        
+
 export default Orders;
-        
-  
 
-
-
-        

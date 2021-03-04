@@ -1,12 +1,12 @@
-import React, {useState,useEffect} from 'react';
+/*import React, {useState,useEffect} from 'react';
 import { Fragment } from 'react';
+import './Loading.css'
 
-
-export default function Loading() {
-  const [isLoading, setLoading] = useState(true);
+function Loading({loading, setLoading}) {
+  const [loading, setLoading] = useState(true);
 
   function fakeRequest() {
-    return new Promise(resolve => setTimeout(() => resolve(), 6000));
+    return new Promise(resolve => setTimeout(() => resolve(), 8000));
   }
 
   useEffect(() => {
@@ -14,28 +14,28 @@ export default function Loading() {
       const element = document.querySelector(".loader-container");
       if (element) {
         element.remove();
-        setLoading(!isLoading);
+        setLoading(!loading);
       }
     });
-  }, [isLoading]);
+  }, [loading]);
 
-  if (isLoading) {
+  if (loading) {
     return null;
   }
 
   return (
     <>
       <div className="loader-container">
-        <span>Aquecendo a Brasa...</span>
+        <p>Aquecendo a Brasa...</p>
         <div className="loader">
           <div></div>
           <div></div>
         </div>
       </div>
       
-     
-    
     </>
-  );
+ );
+ 
 }
-
+export default Loading
+*/
