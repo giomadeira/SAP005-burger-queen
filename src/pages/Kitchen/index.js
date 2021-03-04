@@ -51,7 +51,7 @@ function Kitchen(){
         const parent = event.target.parentNode.parentNode.parentNode;
         const idMudar = parent.getAttribute('id'); 
         localStorage.setItem("id", idMudar);
-        const idPedido = localStorage.getItem('id')
+        const idPedido = Number (localStorage.getItem('id'))
         console.log(idPedido);
 
         
@@ -71,8 +71,10 @@ function Kitchen(){
                     })
                 })
                     .then((response) => response.json()).then((json) => {
-                        
-                        console.log(json)
+                        const filtroPedido = pedidos.filter (item => item.id !== idPedido )
+                        setPedidos(filtroPedido) 
+                        console.log(pedidos)
+                        console.log(idPedido)
                         
                     })
                     

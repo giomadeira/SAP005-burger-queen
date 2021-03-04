@@ -13,6 +13,7 @@ function Orders(){
     
         const history = useHistory()
         const routerBack = () => {
+
             history.push('/')
         }
 
@@ -25,7 +26,6 @@ function Orders(){
             localStorage.clear()
             routerBack()
         }
-       
 
     useEffect (() => {
         fetch('https://lab-api-bq.herokuapp.com/orders/', {
@@ -43,21 +43,20 @@ function Orders(){
             .then((json) => {
                 const feito = json.filter(item => item.status === 'pronto')
                 setPedidosProntos(feito)
+                console.log(json)
+
                 
             })
     }, []);
 
-    
-    
-
     const entregar = (event) => {
     const token = localStorage.getItem("token");
-
+    
 
     const parent = event.target.parentNode.parentNode;
     const idMudar = parent.getAttribute('id');
     localStorage.setItem("id", idMudar);
-    const idPedido = localStorage.getItem('id')
+    const idPedido = Number (localStorage.getItem('id'))
     console.log(idPedido);
 
    
@@ -79,10 +78,11 @@ function Orders(){
                 })
         .then((response) => response.json())
         .then((json) => {
-            
-            const feito = json.filter(item => item.status === 'pronto')
-            setPedidosProntos(feito)       
-            
+    
+            const filtroPedido = pedidosProntos.filter (item => item.id !== idPedido )
+            setPedidosProntos(filtroPedido)       
+            console.log(json)
+
         })
            
     
@@ -112,7 +112,9 @@ function Orders(){
                         <p key={Math.random()} className="divPrice">Status: {item.status}</p>
                         <div key={Math.random()} className="divPrice">Produtos: {item.Products.map((product) => 
                         <p> {product.name} </p>)}
+
                        <button className="alterarPedido" onClick={entregar}>Entregar Pedido</button>
+
                         </div>
 
                         </div>
