@@ -87,6 +87,22 @@
     box-shadow: none;
   }
 
+  .go-Order{
+    margin: 0 auto;
+    width: 40%;
+    background: linear-gradient(to right,#D56A00,#FA7D00, #FE972E, #FFB367);
+    width: 200px;
+    height: 90px;
+    border: 2px solid #5D392A;
+    border-radius: 2px;
+    font-size: 30px;
+    line-height: 47px;
+    color:#0e0a08;
+    margin-top: 30px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
 .cafe{
     margin-top: 2em;
 }
@@ -156,7 +172,8 @@
     display: flex;
     flex-direction: column;
     margin-top: 2em;
-    border: 1px solid #FFB367;
+    border: 5px solid #250909b0;
+    background-color: rgba(250, 250, 131, 0.747);
     width: 90vw;
     height: auto;
     align-items: center;
@@ -181,7 +198,7 @@
 .total-comanda{
     font-size: 30px;
     font-weight: bold;
-    color: #5D392A;
+    color: #201009;
     margin-top: 2em;
 }
 
