@@ -44,6 +44,7 @@ function Orders(){
                 const feito = json.filter(item => item.status === 'pronto')
                 setPedidosProntos(feito)
                 console.log(json)
+
                 
             })
     }, []);
@@ -81,6 +82,7 @@ function Orders(){
             const filtroPedido = pedidosProntos.filter (item => item.id !== idPedido )
             setPedidosProntos(filtroPedido)       
             console.log(json)
+
         })
            
     
@@ -110,7 +112,9 @@ function Orders(){
                         <p key={Math.random()} className="divPrice">Status: {item.status}</p>
                         <div key={Math.random()} className="divPrice">Produtos: {item.Products.map((product) => 
                         <p> {product.name} </p>)}
-                       <button className="alterarPedido" onClick={entregar}>Pedido Entregue</button>
+
+                       <button className="alterarPedido" onClick={entregar}>Entregar Pedido</button>
+
                         </div>
 
                         </div>
