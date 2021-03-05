@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import logo from './logo.png';
-import naBrasa from './naBrasa.gif';
 import './Kitchen.css';
 
 function Kitchen(){
@@ -86,8 +85,6 @@ function Kitchen(){
 
         <div className="App-cozinha">
 
-        <p className="gif"> <img src={naBrasa}/></p>
-
             <div className="cabecalho-kitchen">
         <p className="img-logo"> <img src={logo}/></p>
              <button className="btnExit" onClick={logout}>{<ExitToAppIcon style={{ fontSize: 50 }}/>}</button>
@@ -105,7 +102,8 @@ function Kitchen(){
                         <div className="requests-table"><p key={Math.random()} className="divTable">Mesa: {item.table}</p></div>
                         <div className="requests-status"><p key={Math.random()} className="divStatus">Status: {item.status}</p></div>
                         <div className="requests-products"><div key={Math.random()} className="divProducts">Produtos: {item.Products.map((product) => 
-                        <p> {product.name} </p>)}
+                        <p> {product.qtd} {product.name}  </p>)}
+                        <p key={Math.random()} className="divPrice">Data e hora {new Date(item.createdAt).toLocaleString()}</p>
                        <button className="btn-alterar-Pedido" onClick={cozinhar}>Pedido Pronto!</button>
                         </div>
                                 </div>

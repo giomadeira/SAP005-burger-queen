@@ -12,6 +12,7 @@ function Orders(){
     const token  = localStorage.getItem("token");
     const [pedidosProntos, setPedidosProntos] = useState([]);
     const [pedidosEntregar, setPedidosEntregar] = useState ([]);
+    const [dataInicio, setdataInicio] = useState ([]);
     const [loading, setLoading] = useState(true);
 
     
@@ -97,12 +98,10 @@ function Orders(){
             console.log(json)
             console.log(filtroPedido)
             setPedidosEntregar([...pedidosEntregar, json])
+            
             //setPedidosEntregar()
-            
-            
 
         })
-           
     
         }
 
@@ -135,6 +134,7 @@ function Orders(){
                             <p key={Math.random()} className="divPrice">Status: {item.status}</p>
                             <div key={Math.random()} className="divPrice">Produtos: {item.Products.map((product) => 
                             <p> {product.name} </p>)}
+                            <p key={Math.random()} className="divPrice">Data e hora {new Date(item.updatedAt).toLocaleString()}</p>
     
                            <button className="alterarPedido" onClick={entregar}>Entregar Pedido</button>
     
@@ -158,6 +158,7 @@ function Orders(){
                             <p key={Math.random()} className="divPrice">Status: {item.status}</p>
                             <div key={Math.random()} className="divPrice">Produtos: {item.Products.map((product) => 
                             <p> {product.name} </p>)}
+                            <p key={Math.random()} className="divPrice">Data e hora {new Date(item.updatedAt).toLocaleString()}</p>
     
                             </div>
     
