@@ -13,7 +13,7 @@ import React  from 'react';
        <div className="requests-table"><p key={Math.random()} className="divTable">Mesa: {item.table}</p></div>
        <div className="requests-status"><p key={Math.random()} className="divStatus">Status: {item.status}</p></div>
        <div className="requests-products"><div key={Math.random()} className="divProducts">Produtos: {item.Products.map((product) => 
-       <p> {product.name} </p>)}
+       <p> {product.qtd} {product.name} </p>)}
       <button className="btn-alterar-Pedido" onClick={cozinhar}>Pedido Pronto!</button>
        </div>
                </div>

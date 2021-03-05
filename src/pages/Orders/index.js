@@ -131,7 +131,7 @@ function Orders(){
                             <p key={Math.random()} className="divPrice">Nº Mesa: {item.table}</p>
                             <p key={Math.random()} className="divPrice">Status: {item.status}</p>
                             <div key={Math.random()} className="divPrice">Produtos: {item.Products.map((product) => 
-                            <p> {product.name} </p>)}
+                            <p>{product.qtd} {product.name} </p>)}
 
                             <p key={Math.random()} className="divData"> {new Date(item.updatedAt).toLocaleString()}</p>
 
@@ -157,7 +157,7 @@ function Orders(){
                             <p key={Math.random()} className="divPrice">Nº Mesa: {item.table}</p>
                             <p key={Math.random()} className="divPrice">Status: {item.status}</p>
                             <div key={Math.random()} className="divPrice">Produtos: {item.Products.map((product) => 
-                            <p> {product.name} </p>)}
+                            <p>{product.qtd} {product.name} </p>)}
 
                             <p key={Math.random()} className="divData"> {new Date(item.updatedAt).toLocaleString()}</p>
 
