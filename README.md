@@ -19,52 +19,19 @@ Projeto realizado durante o [Bootcamp Laboratória](https://github.com/Laborator
 
 ## 2. Sobre o NaBrasa
 
-> Nós temos 2 menus. Um muito simples para o café da manhã:
->
-> | Ítem                  | Preço R\$ |
-> | --------------------- | --------- |
-> | Café americano        | 5         |
-> | Café com leite        | 7         |
-> | Misto Quente          | 10        |
-> | Suco de fruta natural | 7         |
->
-> E outro menu para o resto do dia:
->
-> | Ítem                | Preço   |
-> | ------------------- | ------- |
-> | **Hambúrgueres**    | **R\$** |
-> | Hambúrguer simples  | 10      |
-> | Hambúrguer duplo    | 15      |
-> | **Acompanhamentos** | **R\$** |
-> | Batata frita        | 5       |
-> | Anéis de cebola     | 5       |
-> | **Bebidas**         | **R\$** |
-> | Água 500ml          | 5       |
-> | Água 750ml          | 7       |
-> | Refrigerante 500ml  | 7       |
-> | Refrigerante 750ml  | 10      |
-> 
+O nome **NaBrasa**, foi criado com a intenção de mexer com o psicológico do cliente, de poder sentir o gosto e o cheiro de um hambúrguer 
+grelhado apenas lendo o nome do restaurante.
 
->
-> **Importante:** Os clientes podem escolher entre hambúrgueres de carne bovina,
-> frango ou vegetariano. Além disso, por um adicional de R\$ 1,00 , eles podem
-> adicionar queijo **ou** ovo.
->
-> Nossos clientes são bastante indecisos, por isso é muito comum que eles mudem o
-> seu pedido várias vezes antes de finalizar.
-
-A interface deve mostrar os dois menus (café da manhã e restante do dia), cada
-um com todos os seus _produtos_. O usuário deve poder escolher que _produtos_
-adicionar e a interface deve mostrar o _resumo do pedido_ com o custo total.
+O logo sendo um lanche dentro de uma brasa também contribui bastante para reforçar a identidade visual.
 
 
-## 3. Oraganização de Tarefas
+## 3. Histórias de Usuários
 
 Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecidas pelo _Product Owner_
 
 ---
 
-#### História de usuário 1: Criar perfil
+### História de usuário 1: Criar perfil
 
 - [ ] Poder realizar cadastro com e-mail, senha e função.
 - [ ] Poder realizar login com e-mail e senha.
@@ -74,7 +41,7 @@ Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecida
 
 ----
 
-#### História de usuário 2: Anotar pedidos
+### História de usuário 2: Anotar pedidos
 
 - [ ] Digitar o nome do cliente e mesa.
 - [ ] Filtrar _menu_ para _café da manhã_ e _almoço/jantar_.
@@ -87,7 +54,7 @@ Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecida
 
 ---
 
-#### História de usuário 3: Ver pedidos na cozinha
+### História de usuário 3: Ver pedidos na cozinha
 
 - [ ] Visualizar pedidos pendentes para produção.
 - [ ] Marcar pedido como pronto para entrega.
@@ -97,7 +64,7 @@ Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecida
 
 ---
 
-#### HU 4: Entrega de pedidos
+### História de usuário 4: Entrega de pedidos
 
 - [ ] Visualizar pedidos pendentes para entrega.
 - [ ] Marcar pedido como entregue ao cliente.
@@ -106,36 +73,49 @@ Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecida
 
 ---
 
-## 7. Dicas e leituras complementares
+## 4. Planejamento e Organização
 
-### Primeros passos
+Nosso planejamento foi feito a partir da ferramenta Trello, pelo método Kanban, onde dividimos e entregamos cada história por sprint.
+Para ver nosso quadro [acesse aqui] (https://trello.com/b/WvTApf0S/nabrasa-burguers).
 
-- Para iniciar este projeto você terá que fazer um _fork_ e _clone_ deste repositório
+# Protótipos
 
-- Crie um projeto usando `create-react-app`
+De acordo com as necessidades de nosso cliente, desenvolvemos protótipos de média fidelidade para guiar no processo de criação deste WebApp.
 
-- Leia a documentação da [Burger Queen API](https://lab-api-bq.herokuapp.com/api-docs/)
+_Login_
+
+![img](src/img-readme/login.png)
+
+
+_Registro_
+
+![img](src/img-readme/registro.png)
+
+
+_Cardápio_
+
+![img](src/img-readme/cardapio.png)
+
+
+_Pedidos_
+
+![img](src/img-readme/pedidos.png)
 
 ---
 
 
-- [Postman](https://www.postman.com/)
 
-#### Testes
+## 5. Histórias de Usuários
 
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
-- [Jest](https://jestjs.io/)
+---
 
-#### Configuração de ESLint
+## 6. Histórias de Usuários
 
-- [ESLint + Prettier](https://henriquetavares.com/pt-br/setting-eslint-on-reactjs-and-react-native/)
+---
 
-#### Deploy
+## 7. Desenvolvedoras
 
-- [Opções de deploy com Create React App](https://create-react-app.dev/docs/deployment)
-- [Deploy + Netlify (vídeo)](https://drive.google.com/file/d/1hzlB8dl4m0OnLLY2-WpjSLcU7eYTURRk/view)
-- [Deploy + Heroku (vídeo)](https://drive.google.com/file/d/1eqx6yuwJnAU-R83ta89tgEem7ABZigNG/view)
-- [Deploy + Vercel (vídeo)](https://drive.google.com/file/d/1Q9q1iVnRrWeEhGRns0r5OOeiqloQug8y/view)
+Este projeto foi desenvolvido por [Camila Kikuchi](https://github.com/CamilaKikuchi), [Giovana Madeira](https://github.com/giomadeira) e [Juliana Souza](https://github.com/julianaads) :rocket:
 
 ---
 
