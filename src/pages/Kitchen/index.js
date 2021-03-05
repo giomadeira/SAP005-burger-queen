@@ -2,13 +2,15 @@ import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import logo from './logo.png';
-import naBrasa from './naBrasa.gif';
+import Loading from '../../Loading/Loading.js';
 import './Kitchen.css';
+import CardPedido from '../../components/CardPedido'
 
 function Kitchen(){
 
     const token  = localStorage.getItem("token");
     const [pedidos, setPedidos] = useState('');
+    const [loading, setLoading] = useState(true);
     
 
         const history = useHistory()
@@ -36,6 +38,10 @@ function Kitchen(){
                 const pendente = json.filter(item => item.status === 'pending')
                 
                 setPedidos(pendente)
+               setTimeout(() => {
+                    setLoading(false)
+                    }, 10000);
+                    
                 
                 console.log(json)
                 
@@ -83,40 +89,30 @@ function Kitchen(){
     
         }
     return(
-
+        loading?(
+            <Loading/>
+        ):(
         <div className="App-cozinha">
-
-        <p className="gif"> <img src={naBrasa}/></p>
-
             <div className="cabecalho-kitchen">
-        <p className="img-logo"> <img src={logo}/></p>
-             <button className="btnExit" onClick={logout}>{<ExitToAppIcon style={{ fontSize: 50 }}/>}</button>
-       </div>
+            <p className="img-logo"> <img src={logo}/></p>
+            <button className="btnExit" onClick={logout}>{<ExitToAppIcon style={{ fontSize: 50 }}/>}</button>
+            </div>
 
-        <h1 className="title">Pedidos em Preparo</h1>
+            <h1 className="title">Pedidos em Preparo</h1>
             <div className="place-orders">
                 {pedidos && pedidos.map((item) => (
+                        <CardPedido 
+                        item={item}
+                        cozinhar={cozinhar}/>
                         
-                        <div id={item.id}
-                            
-                         key={Math.random()} className="container-requests">
-                        <div className="requests-name"><p key={Math.random()} className="divName">Nome do Cliente: {item.client_name}</p></div>
-                        <div className="requests-Id"><p key={Math.random()} className="divId">Id: {item.id}</p></div>
-                        <div className="requests-table"><p key={Math.random()} className="divTable">Mesa: {item.table}</p></div>
-                        <div className="requests-status"><p key={Math.random()} className="divStatus">Status: {item.status}</p></div>
-                        <div className="requests-products"><div key={Math.random()} className="divProducts">Produtos: {item.Products.map((product) => 
-                        <p> {product.name} </p>)}
-                       <button className="btn-alterar-Pedido" onClick={cozinhar}>Pedido Pronto!</button>
-                        </div>
-                                </div>
-                        </div>
                     ))
                 }
             </div>
 
-           
 
         </div>
+        )
+
     );
 };
 
