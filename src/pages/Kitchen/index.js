@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import logo from './logo.png';
-import Loading from '../../Loading/Loading.js';
 import './Kitchen.css';
 import CardPedido from '../../components/CardPedido'
 
