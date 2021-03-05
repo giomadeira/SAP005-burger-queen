@@ -46,8 +46,8 @@
   margin: 0 auto;
   width: 40%;
   background: linear-gradient(to right, rgba(248, 196, 83, 0.5), rgba(241, 240, 220, 0.575));
-  width: 200px;
   height: 65px;
+  justify-content: center;
   border: 2px solid #5D392A;
   border-radius: 2px;
   font-size: 30px;
