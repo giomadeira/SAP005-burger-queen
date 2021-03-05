@@ -21,10 +21,13 @@ Projeto realizado durante o [Bootcamp Laboratória](https://github.com/Laborator
 
 ## 2. Sobre o NaBrasa
 
-O nome **NaBrasa**, foi criado com a intenção de mexer com o psicológico do cliente, de poder sentir o gosto e o cheiro de um hambúrguer 
+O nome **NaBrasa** foi criado com a intenção de mexer com o psicológico do cliente, de poder sentir o gosto e o cheiro de um hambúrguer 
 grelhado apenas lendo o nome do restaurante.
 
 O logo sendo um lanche dentro de uma brasa também contribui bastante para reforçar a identidade visual.
+
+Inicialmente, utilizaríamos a grafia desta marca como "Braza" para ser um diferencial, mas após feedback de nossos usuários, decidimos por 
+utilizar a palavra com sua grafia usual, pois o significado remete exatamente a idéia inicial, da carne suculenta e gostosa na grelha.
 
 [Clique aqui](https://nabrasaburger.vercel.app/) para conhecer NaBrasa! :fire:
 
