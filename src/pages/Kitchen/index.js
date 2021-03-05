@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import logo from './logo.png';
-import Loading from '../../Loading/Loading.js';
+import Loading from '../../components/Loading/Loading.js';
 import './Kitchen.css';
 import CardPedido from '../../components/CardPedido'
 
@@ -38,18 +38,13 @@ function Kitchen(){
                 const pendente = json.filter(item => item.status === 'pending')
                 
                 setPedidos(pendente)
-               setTimeout(() => {
+                setTimeout(() => {
                     setLoading(false)
-                    }, 10000);
-                    
-                
+                    }, 1000);
                 console.log(json)
                 
             })
     }, []);
-
-    
-    
 
         const cozinhar = (event) => {
         const token = localStorage.getItem("token");

@@ -1,5 +1,5 @@
 import React from "react";
-import naBrasa from './../img/naBrasa.gif'
+import naBrasa from '../../img/naBrasa.gif'
 import './Loading.css'
 
 function Loading({id}) {
