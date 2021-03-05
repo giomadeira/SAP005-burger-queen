@@ -108,7 +108,7 @@ _Pedidos_
 
 Para reforçar cada vez mais a identidade do NaBrasa, utilizamos o logo como referência para criar a paleta de cores a ser utilizada em nossas telas:
 
-![img](src/img-readme/paleta-cores.png)
+![img](src/img-readme/paleta-cores.jpg)
 
 ---
 
@@ -129,8 +129,11 @@ Para reforçar cada vez mais a identidade do NaBrasa, utilizamos o logo como ref
 
 ## 6. Implementações Futuras
 
+As melhorias que gostaríamos de implementar nesta aplicação seriam:
 
-
+* Incluir filtro para os Hamburgueres (Vegano/Carne/Frango);
+* Incluir modal para os ingredientes adicionais (Ovo/Queijo);
+* Criar um arquivo para armazenar os pedidos já finalizados.
 
 ---
 
