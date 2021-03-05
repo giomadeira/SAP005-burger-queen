@@ -2,7 +2,7 @@
 
 ## Índice
 
-- [1. Sobre o projeto](#1-sobre-o-projeto)
+- [1. Introdução](#1-Introdução)
 - [2. Sobre o NaBrasa](#2-sobre-o-nabrasa)
 - [3. Histórias de Usuários](#3-histórias-de-usuários)
 - [4. Considerações gerais](#4-considerações-gerais)
@@ -14,7 +14,7 @@
 
 ---
 
-## 1. Sobre o projeto
+## 1. Introdução
 
 Projeto realizado durante o [Bootcamp Laboratória](https://github.com/Laboratoria) onde foi 
 proposto o desafio de criar uma interface para uma hamburgueria em crescimento, e aumento de demanda de pedidos.
