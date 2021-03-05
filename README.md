@@ -16,8 +16,8 @@
 
 ## 1. Introdução
 
-Projeto realizado durante o [Bootcamp Laboratória](https://github.com/Laboratoria) onde foi 
-proposto o desafio de criar uma interface para uma hamburgueria em crescimento, e aumento de demanda de pedidos.
+Projeto realizado em trio durante o [Bootcamp Laboratória](https://github.com/Laboratoria) onde foi 
+proposto o desafio de criar uma aplicação 100 % por demanda para uma hamburgueria em crescimento. Desenvolvemos uma aplicação responsiva para Tablet responsável por fazer a gestão da hamburgueria de forma sincronizada e eficiente entre os setores de salão e cozinha
 
 ## 2. Sobre o NaBrasa
 
