@@ -6,6 +6,15 @@
     outline: 0;
 
 }
+.body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  border-radius: 25px;
+  border: 3px solid #F24F13;
+}
 
 .App-cozinha{
     background-color: rgba(243, 243, 108, 0.699);
