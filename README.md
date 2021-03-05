@@ -2,12 +2,12 @@
 
 ## Índice
 
-- [1. Introdução](#1-Introdução)
+- [1. Introdução](#1-introdução)
 - [2. Sobre o NaBrasa](#2-sobre-o-nabrasa)
 - [3. Histórias de Usuários](#3-histórias-de-usuários)
 - [4. Planejamento e Organização](#4-planejamento-e-organização)
-- [5. Tecnologias Utlizadas](#5-tecnologias-utilizadas)
-- [6. Implementação Futuras](#6-implemetações-futuras)
+- [5. Tecnologias Utilizadas](#5-tecnologias-utilizadas)
+- [6. Implementações Futuras](#6-implementações-futuras)
 - [7. Desenolvedoras](#7-desenvolvedoras)
 
 
@@ -17,6 +17,8 @@
 
 Projeto realizado durante o [Bootcamp Laboratória](https://github.com/Laboratoria) onde foi proposto o desafio de criar uma aplicação 100% por demanda para uma hamburgueria em crescimento. Desenvolvemos uma aplicação responsiva para Tablet responsável por fazer a gestão da hamburgueria de forma sincronizada e eficiente entre os setores de salão e cozinha
 
+---
+
 ## 2. Sobre o NaBrasa
 
 O nome **NaBrasa**, foi criado com a intenção de mexer com o psicológico do cliente, de poder sentir o gosto e o cheiro de um hambúrguer 
@@ -24,12 +26,12 @@ grelhado apenas lendo o nome do restaurante.
 
 O logo sendo um lanche dentro de uma brasa também contribui bastante para reforçar a identidade visual.
 
+---
 
 ## 3. Histórias de Usuários
 
-Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecidas pelo _Product Owner_
+Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecidas pelo _Product Owner_:
 
----
 
 ### História de usuário 1: Criar perfil
 
@@ -39,7 +41,7 @@ Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecida
 
 ![Watch the video](https://media.giphy.com/media/TnQkPIdIDYlu5Z5ieG/giphy.gif)
 
-----
+
 
 ### História de usuário 2: Anotar pedidos
 
@@ -52,7 +54,7 @@ Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecida
 
 ![Watch the video](https://media.giphy.com/media/X3N98f46rnlAVNgNim/giphy.gif)
 
----
+
 
 ### História de usuário 3: Ver pedidos na cozinha
 
@@ -62,7 +64,7 @@ Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecida
 
 ![Watch the video](https://media.giphy.com/media/OIMG4WrAjJEaejfwAF/giphy.gif)
 
----
+
 
 ### História de usuário 4: Entrega de pedidos
 
@@ -75,7 +77,7 @@ Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecida
 
 ## 4. Planejamento e Organização
 
-Nosso planejamento foi feito a partir da ferramenta Trello, pelo método Kanban, onde dividimos e entregamos cada história por sprint.
+Nosso planejamento foi feito a partir da ferramenta Trello, pela metodologia Kanban, onde dividimos e entregamos cada história por sprint.
 Para ver nosso quadro [acesse aqui] (https://trello.com/b/WvTApf0S/nabrasa-burguers).
 
 # Protótipos
@@ -101,15 +103,33 @@ _Pedidos_
 
 ![img](src/img-readme/pedidos.png)
 
+
+# Paleta de Cores
+
+Para reforçar cada vez mais a identidade do NaBrasa, utilizamos o logo como referência para criar a paleta de cores a ser utilizada em nossas telas:
+
+![img](src/img-readme/paleta-cores.png)
+
 ---
 
 
+## 5. Tecnologias Utilizadas
 
-## 5. Histórias de Usuários
+- HTML;
+- CSS;
+- JavaScript;
+- React;
+- Consumo de API;
+- Insomnia;
+- Figma;
+- Canva;
+- Vercel.
 
 ---
 
-## 6. Histórias de Usuários
+## 6. Implementações Futuras
+
+
 
 ---
 
