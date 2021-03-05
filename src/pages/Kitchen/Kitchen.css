@@ -8,7 +8,7 @@
 }
 
 .App-cozinha{
-    background-color: rgba(243, 243, 108, 0.699);
+    background: rgba(243, 243, 108, 0.699);
     display: flex;
     flex-direction: column;
     align-items: center;
