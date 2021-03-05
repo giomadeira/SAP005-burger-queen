@@ -50,8 +50,8 @@ function Orders(){
                 const entrega = json.filter(item => item.status === 'entregue')
                 setPedidosProntos(feito)
                 setPedidosEntregar(entrega)
-
-                setTimeout(() => {
+               
+               setTimeout(() => {
                 setLoading(false)
                 }, 1000);
                 
@@ -78,7 +78,7 @@ function Orders(){
 
             method: 'PUT',
             headers: {
-                    'accept': 'application/json',
+                'accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Authorization':`${token}`,
                 'Access-Control-Allow-Origin': '*', 
@@ -97,9 +97,7 @@ function Orders(){
             setPedidosProntos(filtroPedido)       
             console.log(json)
             console.log(filtroPedido)
-            setPedidosEntregar([...pedidosEntregar, json])
-            
-            //setPedidosEntregar()
+            setPedidosEntregar([...pedidosEntregar, json])  
 
         })
     
@@ -111,7 +109,7 @@ function Orders(){
 
     return(
         loading?(
-            <Loading/>
+            <Loading />
         ):(<div className="App-pedidos">
 
         <div className="cabecalho-kitchen">
