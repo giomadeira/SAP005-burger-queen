@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import logo from './logo.png';
-import Loading from '../../Loading/Loading.js';
+import Loading from '../../components/Loading/Loading.js';
 import './Orders.css';
 
 
@@ -12,6 +12,7 @@ function Orders(){
     const token  = localStorage.getItem("token");
     const [pedidosProntos, setPedidosProntos] = useState([]);
     const [pedidosEntregar, setPedidosEntregar] = useState ([]);
+    const [dataInicio, setdataInicio] = useState ([]);
     const [loading, setLoading] = useState(true);
 
     
@@ -99,7 +100,6 @@ function Orders(){
             setPedidosEntregar([...pedidosEntregar, json])  
 
         })
-           
     
         }
 
@@ -132,6 +132,7 @@ function Orders(){
                             <p key={Math.random()} className="divPrice">Status: {item.status}</p>
                             <div key={Math.random()} className="divPrice">Produtos: {item.Products.map((product) => 
                             <p> {product.name} </p>)}
+                            <p key={Math.random()} className="divPrice">Data e hora {new Date(item.updatedAt).toLocaleString()}</p>
     
                            <button className="alterarPedido" onClick={entregar}>Entregar Pedido</button>
     
@@ -155,6 +156,7 @@ function Orders(){
                             <p key={Math.random()} className="divPrice">Status: {item.status}</p>
                             <div key={Math.random()} className="divPrice">Produtos: {item.Products.map((product) => 
                             <p> {product.name} </p>)}
+                            <p key={Math.random()} className="divPrice">Data e hora {new Date(item.updatedAt).toLocaleString()}</p>
     
                             </div>
     
