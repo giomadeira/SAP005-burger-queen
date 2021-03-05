@@ -5,7 +5,7 @@
 - [1. Introdução](#1-Introdução)
 - [2. Sobre o NaBrasa](#2-sobre-o-nabrasa)
 - [3. Histórias de Usuários](#3-histórias-de-usuários)
-- [4. Considerações gerais](#4-considerações-gerais)
+- [4. Protótipo](#4-Protótipo)
 - [5. Critérios de aceitação mínimos do
   projeto](#5-critérios-de-aceitação-mínimos-do-projeto)
 - [6. Hacker Edition](#6-hacker-edition)
@@ -114,7 +114,7 @@ Finalmente, a interface deve ser pensada específicamente para rodar em **tablet
 
 ---
 
-## 7. Dicas e leituras complementares
+## 7. Protótipo
 
 ### Primeros passos
 
