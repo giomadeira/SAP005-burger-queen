@@ -2,7 +2,7 @@
 
 ## Índice
 
-- [1. Preâmbulo](#1-preâmbulo)
+- [1. Sobre o projeto](#1-sobre-o-projeto)
 - [2. Resumo do projeto](#2-resumo-do-projeto)
 - [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
 - [4. Considerações gerais](#4-considerações-gerais)
@@ -14,28 +14,12 @@
 
 ---
 
-## 1. Preâmbulo
+## 1. Sobre o projeto
 
-[React](https://reactjs.org/), [Angular](https://angular.io/) e
-[Vue](https://vuejs.org/) são alguns dos _frameworks_ e _bibliotecas_ de
-JavaScript mais usados na área de desenvolvimento ao redor do mundo e existe uma
-razão para isso. No contexto do navegador, [_manter a interface sincronizada com
-o estado é difícil_](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445).
+Um pequeno restaurante de hambúrgueres, que está crescendo, necessita uma
+interface em que se possa realizar pedidos utilizando um _tablet_, e enviá-los
+para a cozinha para que sejam preparados de forma ordenada e eficiente.
 
-Ao eleger um _framework_ ou _biblioteca_ para nossa interface, nos apoiamos em
-uma série de convenções e implementações _testadas_ e _documentadas_ para
-resolver um problema comum a toda interface web. Isto nos permite concentrar
-melhor (dedicar mais tempo) nas características _específicas_ de nossa
-aplicação.
-
-Quando escolhemos uma destas tecnologias não só importamos um pedaço de código
-para reusar (o qual já é um grande valor por si só), mas também adotamos uma
-**arquitetura**, uma série de **princípios de design**, um paradigma, algumas
-**abstrações**, um **vocabulário**, uma **comunidade**, etc...
-
-Como desenvolvedora Front-end, estes kits de desenvolvimento podem resultar em
-uma grande ajuda para implementar rapidamente _features_ dos projetos em que
-você for trabalhar.
 
 ## 2. Resumo do projeto
 
@@ -210,6 +194,38 @@ Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá
 
 ---
 
+#### HU 1: Criar perfil
+
+- [ ] Poder realizar cadastro com e-mail, senha e função.
+- [ ] Poder realizar login com e-mail e senha.
+- [ ] Redirecionar para a tela correta.
+
+#### HU 2: Anotar pedidos
+
+- [ ] Digitar o nome do cliente e mesa.
+- [ ] Filtrar _menu_ para _café da manhã_ e _almoço/jantar_.
+- [ ] Adicionar item ao pedido.
+- [ ] Excluir item do pedido.
+- [ ] Mostrar _resumo_ do pedido com todos os itens e o total.
+- [ ] Enviar para a cozinha (isso deve salvar o pedido).
+
+#### HU 3: Ver pedidos na cozinha
+
+- [ ] Visualizar pedidos pendentes para produção.
+- [ ] Marcar pedido como pronto para entrega.
+- [ ] Ver histórico dos pedidos.
+
+#### HU 4: Entrega de pedidos
+
+- [ ] Visualizar pedidos pendentes para entrega.
+- [ ] Marcar pedido como entregue ao cliente.
+
+### UX
+
+- [ ] Funciona bem em tablets.
+- [ ] Fácil utilização em telas sensíveis ao toque.
+- [ ] Status atual do pedido sempre visível enquanto fazemos um pedido.
+
 ## 6. Hacker Edition
 
 As seções chamadas Hacker Edition são opcionais. Se você terminou tudo e ainda sobrou tempo, faça essa parte. Assim você poderá aprofundar e exercitar mais sobre os objetivos de aprendizagem do projeto.
@@ -294,45 +310,4 @@ As seções chamadas Hacker Edition são opcionais. Se você terminou tudo e ain
 - [ ] Documentação do processo de design.
 - [ ] Inclui informações para desenvolvedores (dependências, instalação, uso, testes...).
 
-#### HU 1: Criar perfil
 
-- [ ] Poder realizar cadastro com e-mail, senha e função.
-- [ ] Poder realizar login com e-mail e senha.
-- [ ] Redirecionar para a tela correta.
-
-#### HU 2: Anotar pedidos
-
-- [ ] Digitar o nome do cliente e mesa.
-- [ ] Filtrar _menu_ para _café da manhã_ e _almoço/jantar_.
-- [ ] Adicionar item ao pedido.
-- [ ] Excluir item do pedido.
-- [ ] Mostrar _resumo_ do pedido com todos os itens e o total.
-- [ ] Enviar para a cozinha (isso deve salvar o pedido).
-
-#### HU 3: Ver pedidos na cozinha
-
-- [ ] Visualizar pedidos pendentes para produção.
-- [ ] Marcar pedido como pronto para entrega.
-- [ ] Ver histórico dos pedidos.
-
-#### HU 4: Entrega de pedidos
-
-- [ ] Visualizar pedidos pendentes para entrega.
-- [ ] Marcar pedido como entregue ao cliente.
-
-### UX
-
-- [ ] Funciona bem em tablets.
-- [ ] Fácil utilização em telas sensíveis ao toque.
-- [ ] Status atual do pedido sempre visível enquanto fazemos um pedido.
-
-### Hacker Edition
-
-#### Testes
-
-- [ ] 70% de cobertura de _statements_.
-- [ ] 70% de cobertura de _functions_.
-- [ ] 70% de cobertura de _lines_.
-- [ ] 70% de cobertura de _branches_.
-
-#### ESLint
