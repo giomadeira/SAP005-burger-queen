@@ -71,12 +71,13 @@
   border: 1px solid #5D392A;
   font-size: 20px;
   font-weight: bold;
-  width:15vw;
-  height:3.5vh;
+  width:auto;
+  padding: 5px;
+  height:50px;
   margin-left: auto;
   margin-right:auto;
   margin-bottom: auto;
-  margin-top:5em;
+  margin-top:4em;
   height: 50px;
     
  
@@ -97,6 +98,14 @@
   text-align: center;
   margin-top:0.7em;
 
+}
+
+.divData{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 0.5em;
 }
 
 .voltar-Hall{
