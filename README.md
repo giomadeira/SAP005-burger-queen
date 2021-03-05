@@ -5,26 +5,20 @@
 - [1. Introdução](#1-Introdução)
 - [2. Sobre o NaBrasa](#2-sobre-o-nabrasa)
 - [3. Histórias de Usuários](#3-histórias-de-usuários)
-- [4. Protótipo](#4-Protótipo)
-- [5. Critérios de aceitação mínimos do
-  projeto](#5-critérios-de-aceitação-mínimos-do-projeto)
-- [6. Hacker Edition](#6-hacker-edition)
-- [7. Dicas e leituras complementares](#7-dicas-e-leituras-complementares)
-- [8. Checklist](#8-checklist)
+- [4. Planejamento e Organização](#4-planejamento-e-organização)
+- [5. Tecnologias Utlizadas](#5-tecnologias-utilizadas)
+- [6. Implementação Futuras](#6-implemetações-futuras)
+- [7. Desenolvedoras](#7-desenvolvedoras)
+
 
 ---
 
 ## 1. Introdução
 
-Projeto realizado em trio durante o [Bootcamp Laboratória](https://github.com/Laboratoria) onde foi 
-proposto o desafio de criar uma aplicação 100 % por demanda para uma hamburgueria em crescimento. Desenvolvemos uma aplicação responsiva para Tablet responsável por fazer a gestão da hamburgueria de forma sincronizada e eficiente entre os setores de salão e cozinha
+Projeto realizado durante o [Bootcamp Laboratória](https://github.com/Laboratoria) onde foi proposto o desafio de criar uma aplicação 100% por demanda para uma hamburgueria em crescimento. Desenvolvemos uma aplicação responsiva para Tablet responsável por fazer a gestão da hamburgueria de forma sincronizada e eficiente entre os setores de salão e cozinha
 
 ## 2. Sobre o NaBrasa
 
-
-
-
->
 > Nós temos 2 menus. Um muito simples para o café da manhã:
 >
 > | Ítem                  | Preço R\$ |
@@ -64,11 +58,9 @@ um com todos os seus _produtos_. O usuário deve poder escolher que _produtos_
 adicionar e a interface deve mostrar o _resumo do pedido_ com o custo total.
 
 
-## 3. Histórias de Usuários
+## 3. Oraganização de Tarefas
 
-O objetivo principal é aprender a construir uma interface web usando React. Esse framework front-end ataca o seguinte problema: **como manter a interface e estado sincronizados**. Portanto, esta experiência espera familiarizá-la com o conceito de estado da tela, e como cada mudança no estado vai refletir na interface (por exemplo, toda vez que adicionamos um _produto_ para um _pedido_, a interface deve atualizar a lista de pedidos e o total).
-
-Finalmente, a interface deve ser pensada específicamente para rodar em **tablets**.
+Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecidas pelo _Product Owner_
 
 ---
 
@@ -114,7 +106,7 @@ Finalmente, a interface deve ser pensada específicamente para rodar em **tablet
 
 ---
 
-## 7. Protótipo
+## 7. Dicas e leituras complementares
 
 ### Primeros passos
 
@@ -147,52 +139,3 @@ Finalmente, a interface deve ser pensada específicamente para rodar em **tablet
 
 ---
 
-## 8. Checklist
-
-#### `README.md`
-
-- [ ] Documentação do processo de design.
-- [ ] Inclui informações para desenvolvedores (dependências, instalação, uso, testes...).
-
-#### HU 1: Criar perfil
-
-- [ ] Poder realizar cadastro com e-mail, senha e função.
-- [ ] Poder realizar login com e-mail e senha.
-- [ ] Redirecionar para a tela correta.
-
-#### HU 2: Anotar pedidos
-
-- [ ] Digitar o nome do cliente e mesa.
-- [ ] Filtrar _menu_ para _café da manhã_ e _almoço/jantar_.
-- [ ] Adicionar item ao pedido.
-- [ ] Excluir item do pedido.
-- [ ] Mostrar _resumo_ do pedido com todos os itens e o total.
-- [ ] Enviar para a cozinha (isso deve salvar o pedido).
-
-#### HU 3: Ver pedidos na cozinha
-
-- [ ] Visualizar pedidos pendentes para produção.
-- [ ] Marcar pedido como pronto para entrega.
-- [ ] Ver histórico dos pedidos.
-
-#### HU 4: Entrega de pedidos
-
-- [ ] Visualizar pedidos pendentes para entrega.
-- [ ] Marcar pedido como entregue ao cliente.
-
-### UX
-
-- [ ] Funciona bem em tablets.
-- [ ] Fácil utilização em telas sensíveis ao toque.
-- [ ] Status atual do pedido sempre visível enquanto fazemos um pedido.
-
-### Hacker Edition
-
-#### Testes
-
-- [ ] 70% de cobertura de _statements_.
-- [ ] 70% de cobertura de _functions_.
-- [ ] 70% de cobertura de _lines_.
-- [ ] 70% de cobertura de _branches_.
-
-#### ESLint
