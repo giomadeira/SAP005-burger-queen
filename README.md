@@ -26,6 +26,8 @@ grelhado apenas lendo o nome do restaurante.
 
 O logo sendo um lanche dentro de uma brasa também contribui bastante para reforçar a identidade visual.
 
+[Clique aqui](https://nabrasaburger.vercel.app/) para conhecer NaBrasa! :fire:
+
 ---
 
 ## 3. Histórias de Usuários
