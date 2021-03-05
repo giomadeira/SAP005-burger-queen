@@ -1,0 +1,31 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: 0;
+    outline: 0;
+
+}
+.App-loading{
+  background-color: rgba(243, 243, 108, 0.699);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: auto;
+    color: #c7610efb;
+    border-radius: 50px;
+    border: 5px solid #F24F13
+
+}
+.loading-gif{
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: auto;
+  margin:  auto;
+  position: relative;
+  
+};
+
+  
+  
