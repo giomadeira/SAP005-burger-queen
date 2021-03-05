@@ -78,7 +78,7 @@ Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecida
 ## 4. Planejamento e Organização
 
 Nosso planejamento foi feito a partir da ferramenta Trello, pela metodologia Kanban, onde dividimos e entregamos cada história por sprint.
-Para ver nosso quadro [acesse aqui] (https://trello.com/b/WvTApf0S/nabrasa-burguers).
+Para ver nosso quadro [acesse aqui](https://trello.com/b/WvTApf0S/nabrasa-burguers).
 
 ### Protótipos
 
