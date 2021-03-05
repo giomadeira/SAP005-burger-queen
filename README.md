@@ -80,7 +80,7 @@ Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecida
 Nosso planejamento foi feito a partir da ferramenta Trello, pela metodologia Kanban, onde dividimos e entregamos cada história por sprint.
 Para ver nosso quadro [acesse aqui] (https://trello.com/b/WvTApf0S/nabrasa-burguers).
 
-# Protótipos
+### Protótipos
 
 De acordo com as necessidades de nosso cliente, desenvolvemos protótipos de média fidelidade para guiar no processo de criação deste WebApp.
 
@@ -104,7 +104,7 @@ _Pedidos_
 ![img](src/img-readme/pedidos.png)
 
 
-# Paleta de Cores
+### Paleta de Cores
 
 Para reforçar cada vez mais a identidade do NaBrasa, utilizamos o logo como referência para criar a paleta de cores a ser utilizada em nossas telas:
 
@@ -128,6 +128,7 @@ Para reforçar cada vez mais a identidade do NaBrasa, utilizamos o logo como ref
 ---
 
 ## 6. Implementações Futuras
+
 
 
 
