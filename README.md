@@ -11,6 +11,7 @@
 - [7. Desenolvedoras](#7-desenvolvedoras)
 
 
+
 ---
 
 ## 1. Introdução
@@ -40,6 +41,7 @@ Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecida
 
 ### História de usuário 1: Criar perfil
 
+
 - [ ] Poder realizar cadastro com e-mail, senha e função.
 - [ ] Poder realizar login com e-mail e senha.
 - [ ] Redirecionar para a tela correta.
@@ -58,7 +60,6 @@ Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecida
 - [ ] Enviar para a cozinha (isso deve salvar o pedido).
 
 ![Watch the video](https://media.giphy.com/media/X3N98f46rnlAVNgNim/giphy.gif)
-
 
 
 ### História de usuário 3: Ver pedidos na cozinha
@@ -116,7 +117,6 @@ Para reforçar cada vez mais a identidade do NaBrasa, utilizamos o logo como ref
 ![img](src/img-readme/paleta-cores.jpg)
 
 ---
-
 
 ## 5. Tecnologias Utilizadas
 

@@ -4,6 +4,8 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import logo from './logo.png';
 import Loading from '../../components/Loading/Loading.js';
 import CardPedidoOrders from '../../components/CardPedidoOrders'
+import PedidoEntregue from '../../components/CardPedidoEntregue'
+
 import './Orders.css';
 
 
@@ -136,22 +138,11 @@ function Orders(){
                 <div className="entregar-pedidos">
                     {pedidosEntregar && pedidosEntregar.map((item) => (
                             
-                            <div id={item.id}
-                                
-                             key={Math.random()} className="container-pedidos">
-                            <p key={Math.random()} className="divName">Nome do Cliente: {item.client_name}</p>
-                            <p key={Math.random()} className="divFlavor">Id: {item.id}</p>
-                            <p key={Math.random()} className="divPrice">Nº Mesa: {item.table}</p>
-                            <p key={Math.random()} className="divPrice">Status: {item.status}</p>
-                            <div key={Math.random()} className="divPrice">Produtos: {item.Products.map((product) => 
-                            <p>{product.qtd} {product.name} </p>)}
 
-                            <p key={Math.random()} className="divData"> {new Date(item.updatedAt).toLocaleString()}</p>
+                            <PedidoEntregue
+                            item={item}/>
 
-    
-                            </div>
-    
-                            </div>
+
                         ))
                     }
           
