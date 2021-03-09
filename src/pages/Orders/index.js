@@ -5,6 +5,7 @@ import logo from './logo.png';
 import Loading from '../../components/Loading/Loading.js';
 import CardPedidoOrders from '../../components/CardPedidoOrders'
 import PedidoEntregue from '../../components/CardPedidoEntregue'
+
 import './Orders.css';
 
 
@@ -137,8 +138,10 @@ function Orders(){
                 <div className="entregar-pedidos">
                     {pedidosEntregar && pedidosEntregar.map((item) => (
                             
+
                             <PedidoEntregue
                             item={item}/>
+
 
                         ))
                     }

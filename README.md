@@ -2,7 +2,6 @@
 
 ## Índice
 
-
 - [1. Introdução](#1-introdução)
 - [2. Sobre o NaBrasa](#2-sobre-o-nabrasa)
 - [3. Histórias de Usuários](#3-histórias-de-usuários)
@@ -42,6 +41,7 @@ Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecida
 
 ### História de usuário 1: Criar perfil
 
+
 - [ ] Poder realizar cadastro com e-mail, senha e função.
 - [ ] Poder realizar login com e-mail e senha.
 - [ ] Redirecionar para a tela correta.
@@ -62,8 +62,6 @@ Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecida
 ![Watch the video](https://media.giphy.com/media/X3N98f46rnlAVNgNim/giphy.gif)
 
 
-
-
 ### História de usuário 3: Ver pedidos na cozinha
 
 - [ ] Visualizar pedidos pendentes para produção.
@@ -71,6 +69,7 @@ Trabalhamos durante 4 sprints de acordo com as Histórias de Usuários fornecida
 - [ ] Ver histórico dos pedidos
 
 ![Watch the video](https://media.giphy.com/media/OIMG4WrAjJEaejfwAF/giphy.gif)
+
 
 
 ### História de usuário 4: Entrega de pedidos
