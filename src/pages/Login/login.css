@@ -6,16 +6,6 @@
 
 }
 
-/*body,
-html{
-   display: flex; 
-  margin: 0;
-  justify-content: center;
-  align-items: center;
-  width: 100vw; 
-  height: 100vh;
-}*/
-
 .login{
   display: flex;
   justify-content: center;
@@ -41,11 +31,13 @@ html{
 }
 
 .loginBtn {
+  display: flex;
+  flex-wrap: wrap;
   margin: 0 auto;
   width: 40%;
   background: linear-gradient(to right, rgba(248, 196, 83, 0.5), rgba(241, 240, 220, 0.575));
-  width: 200px;
   height: 65px;
+  justify-content: center;
   border: 3px solid #5D392A;
   border-radius:3px;
   font-size: 30px;

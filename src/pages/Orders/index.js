@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import logo from './logo.png';
 import Loading from '../../components/Loading/Loading.js';
+import CardPedidoOrders from '../../components/CardPedidoOrders'
+import PedidoEntregue from '../../components/CardPedidoEntregue'
 import './Orders.css';
 
 
@@ -122,25 +124,11 @@ function Orders(){
             <h1 className="title">Pedidos Prontos </h1>
                 <div className="pedidos-prontos">
                     {pedidosProntos && pedidosProntos.map((item) => (
+
+                            <CardPedidoOrders 
+                            item={item}
+                            entregar={entregar}/>
                             
-                            <div id={item.id}
-                                
-                             key={Math.random()} className="container-pedidos">
-                            <p key={Math.random()} className="divName">Nome do Cliente: {item.client_name}</p>
-                            <p key={Math.random()} className="divFlavor">Id: {item.id}</p>
-                            <p key={Math.random()} className="divPrice">Nº Mesa: {item.table}</p>
-                            <p key={Math.random()} className="divPrice">Status: {item.status}</p>
-                            <div key={Math.random()} className="divPrice">Produtos: {item.Products.map((product) => 
-
-                            <p>{product.qtd} {product.name} </p>)}
-
-                            <p key={Math.random()} className="divData"> {new Date(item.updatedAt).toLocaleString()}</p>
-    
-                           <button className="alterarPedido" onClick={entregar}>Entregar Pedido</button>
-    
-                            </div>
-    
-                            </div>
                         ))
                     }
                 </div>
@@ -149,22 +137,9 @@ function Orders(){
                 <div className="entregar-pedidos">
                     {pedidosEntregar && pedidosEntregar.map((item) => (
                             
-                            <div id={item.id}
-                                
-                             key={Math.random()} className="container-pedidos">
-                            <p key={Math.random()} className="divName">Nome do Cliente: {item.client_name}</p>
-                            <p key={Math.random()} className="divFlavor">Id: {item.id}</p>
-                            <p key={Math.random()} className="divPrice">Nº Mesa: {item.table}</p>
-                            <p key={Math.random()} className="divPrice">Status: {item.status}</p>
-                            <div key={Math.random()} className="divPrice">Produtos: {item.Products.map((product) => 
+                            <PedidoEntregue
+                            item={item}/>
 
-                            <p>{product.qtd} {product.name} </p>)}
-
-                            <p key={Math.random()} className="divData"> {new Date(item.updatedAt).toLocaleString()}</p>
-
-                            </div>
-    
-                            </div>
                         ))
                     }
           

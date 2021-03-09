@@ -8,7 +8,7 @@ function Loading({id}) {
     <>
       <div className="App-loading"> 
       <img id={id} className="loading-gif" alt="Loading" src={naBrasa}/>
-      <h1>Aquecendo a Brasa...</h1>
+      <h1 className="loading-title">Aquecendo a Brasa...</h1>
       </div>
     </>
   );

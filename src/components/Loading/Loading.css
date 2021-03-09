@@ -11,7 +11,7 @@
     flex-direction: column;
     align-items: center;
     width: auto;
-    height: auto;
+    height: 98vh;
     color: #c7610efb;
     border-radius: 50px;
     border: 5px solid #F24F13
@@ -25,7 +25,13 @@
   margin:  auto;
   position: relative;
   
-};
+}
+
+.loading-title{
+  display: flex;
+  align-items: center;
+  font-size: 50px;
+}
 
   
   
